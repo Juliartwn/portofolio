@@ -1,9 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import Button from '../ui/Button';
 import SocialIcon from '../ui/SocialIcon';
 
 const Hero: React.FC = () => {
+  const roles = [
+    'Full Stack Developer',
+    'UI/UX Enthusiast',
+    'Frontend Developer',
+    'Backend Developer'
+  ];
+
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  useEffect(() => {
+    const currentRole = roles[currentRoleIndex];
+
+    const handleTyping = () => {
+      if (!isDeleting) {
+        // Typing
+        if (displayedText.length < currentRole.length) {
+          setDisplayedText(currentRole.slice(0, displayedText.length + 1));
+          setTypingSpeed(100);
+        } else {
+          // Pause before deleting
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        // Deleting
+        if (displayedText.length > 0) {
+          setDisplayedText(currentRole.slice(0, displayedText.length - 1));
+          setTypingSpeed(50);
+        } else {
+          setIsDeleting(false);
+          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, currentRoleIndex, typingSpeed, roles]);
+
+  const scrollToNextSection = () => {
+    const aboutSection = document.getElementById('about');
+    aboutSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    projectsSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -23,9 +74,12 @@ const Hero: React.FC = () => {
             Juli Artawan
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-300 mb-4">
-            Full Stack Developer & UI/UX Enthusiast
-          </p>
+          <div className="h-16 flex items-center justify-center mb-4">
+            <p className="text-xl md:text-2xl text-gray-300">
+              {displayedText}
+              <span className="animate-pulse">|</span>
+            </p>
+          </div>
 
           <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">
             Crafting beautiful and functional web experiences with modern technologies.
@@ -53,15 +107,19 @@ const Hero: React.FC = () => {
             />
           </div>
 
-          <Button variant="primary" size="lg">
+          <Button variant="primary" size="lg" onClick={scrollToProjects}>
             View My Work
           </Button>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <button
+        onClick={scrollToNextSection}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer bg-transparent border-none p-2 hover:text-purple-400 transition-colors duration-300"
+        aria-label="Scroll to next section"
+      >
         <ArrowDown className="w-6 h-6 text-gray-400" />
-      </div>
+      </button>
     </section>
   );
 };
