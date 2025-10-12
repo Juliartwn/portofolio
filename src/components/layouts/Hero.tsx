@@ -64,29 +64,29 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10 py-25">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-8 inline-block">
+          <div className="mb-8 inline-block animate-zoom-in">
             <div className="w-32 h-32 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center text-4xl font-bold shadow-2xl transform hover:scale-110 transition-transform duration-300">
               JD
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400 animate-fade-in-down delay-100">
             Juli Artawan
           </h1>
 
-          <div className="h-16 flex items-center justify-center mb-4">
+          <div className="h-16 flex items-center justify-center mb-4 animate-fade-in-up delay-200">
             <p className="text-xl md:text-2xl text-gray-300">
               {displayedText}
               <span className="animate-pulse">|</span>
             </p>
           </div>
 
-          <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">
+          <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-lg animate-fade-in-up delay-300">
             Crafting beautiful and functional web experiences with modern technologies.
             Passionate about clean code and intuitive design.
           </p>
 
-          <div className="flex gap-4 justify-center mb-12">
+          <div className="flex gap-4 justify-center mb-12 animate-fade-in-up delay-400">
             <SocialIcon
               icon={<Github className="w-6 h-6" />}
               href="#"
@@ -107,9 +107,11 @@ const Hero: React.FC = () => {
             />
           </div>
 
-          <Button variant="primary" size="lg" onClick={scrollToProjects}>
-            View My Work
-          </Button>
+          <div className="animate-fade-in-up delay-500">
+            <Button variant="primary" size="lg" onClick={scrollToProjects}>
+              View My Work
+            </Button>
+          </div>
         </div>
       </div>
 
