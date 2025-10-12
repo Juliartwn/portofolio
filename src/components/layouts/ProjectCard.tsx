@@ -10,6 +10,7 @@ interface ProjectCardProps {
   tags: string[];
   github: string;
   demo: string;
+  className?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -18,10 +19,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   image,
   tags,
   github,
-  demo
+  demo,
+  className = ''
 }) => {
   return (
-    <Card className="group">
+    <Card className={`group ${className}`}>
       <div className="relative overflow-hidden">
         <img
           src={image}
