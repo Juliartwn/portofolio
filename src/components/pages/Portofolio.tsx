@@ -52,7 +52,7 @@ const Portfolio: React.FC = () => {
       title: "SvaraNusa",
       description:
         "Desain antarmuka aplikasi untuk mendengarkan lagu daerah Nusantara.",
-      image: "/public/img/project/SvaraNusa/SvaraNusa.png",
+      image: "/img/project/SvaraNusa/SvaraNusa.png",
       tags: ["Figma"],
       figma: "#",
       type: "design" as const,
@@ -74,16 +74,16 @@ const Portfolio: React.FC = () => {
       title: "GreenGarden",
       description:
         "Website rekomendasi jenis tanaman yang cocok ditanam berdasarkan suhu di lokasi yang ditentukan pengguna.",
-      image: "/public/img/project/GreenGarden/GreenGarden_1.png",
+      image: "/img/project/GreenGarden/GreenGarden_1.png",
       images: [
-        "/public/img/project/GreenGarden/GreenGarden_1.png",
-        "/public/img/project/GreenGarden/GreenGarden_2.png",
-        "/public/img/project/GreenGarden/GreenGarden_3.png",
-        "/public/img/project/GreenGarden/GreenGarden_4.png",
-        "/public/img/project/GreenGarden/GreenGarden_5.png",
-        "/public/img/project/GreenGarden/GreenGarden_6.png",
-        "/public/img/project/GreenGarden/GreenGarden_7.png",
-        "/public/img/project/GreenGarden/GreenGarden_8.png",
+        "/img/project/GreenGarden/GreenGarden_1.png",
+        "/img/project/GreenGarden/GreenGarden_2.png",
+        "/img/project/GreenGarden/GreenGarden_3.png",
+        "/img/project/GreenGarden/GreenGarden_4.png",
+        "/img/project/GreenGarden/GreenGarden_5.png",
+        "/img/project/GreenGarden/GreenGarden_6.png",
+        "/img/project/GreenGarden/GreenGarden_7.png",
+        "/img/project/GreenGarden/GreenGarden_8.png",
       ],
       tags: ["Laravel", "Tailwind", "MySQL"],
       github: "#",
@@ -106,7 +106,7 @@ const Portfolio: React.FC = () => {
       title: "EasyKost",
       description:
         "Desain antarmuka aplikasi pencarian tempat kos di wilayah Singaraja.",
-      image: "/public/img/project/EasyKost/EasyKost.png",
+      image: "/img/project/EasyKost/EasyKost.png",
       tags: ["React", "Weather API", "Mapbox", "PWA"],
       figma: "#",
       type: "design" as const,
@@ -127,7 +127,7 @@ const Portfolio: React.FC = () => {
       title: "StudeeApp",
       description:
         "Desain antarmuka aplikasi kelas online untuk belajar desain.",
-      image: "/public/img/project/StudeeApp/StudeeApp.png",
+      image: "/img/project/StudeeApp/StudeeApp.png",
       tags: ["Figma", "UI/UX", "Prototyping"],
       figma: "#",
       type: "design" as const,
@@ -150,11 +150,11 @@ const Portfolio: React.FC = () => {
       description:
         "Website manajemen gym yang dibangun dengan Laravel dan Tailwind CSS.",
       image:
-        "/public/img/project/GymApp/GymApp_1.png",
+        "/img/project/GymApp/GymApp_1.png",
       images: [
-        "/public/img/project/GymApp/GymApp_1.png",
-        "/public/img/project/GymApp/GymApp_2.png",
-        "/public/img/project/GymApp/GymApp_3.png",
+        "/img/project/GymApp/GymApp_1.png",
+        "/img/project/GymApp/GymApp_2.png",
+        "/img/project/GymApp/GymApp_3.png",
       ],
       tags: ["React Native", "Firebase", "Redux", "Figma"],
       github: "#",
@@ -184,7 +184,7 @@ const Portfolio: React.FC = () => {
       date: "22 March 2024",
       description:
         "Menyelesaikan kursus pengantar Python yang mencakup dasar-dasar pemrograman seperti variabel, tipe data, struktur kontrol, fungsi, dan pemrosesan data sederhana. Kursus ini memberikan pemahaman awal yang kuat untuk mengembangkan program Python dasar.",
-      image: "/public/img/sertifikat/sertifikat sololearn Phyton.jpg",
+      image: "/img/sertifikat/sertifikat sololearn Phyton.jpg",
       credentialUrl: "#",
       skills: ["Python"],
     },
@@ -194,7 +194,7 @@ const Portfolio: React.FC = () => {
       date: "31 August 2023",
       description:
         "Menyelesaikan kursus dasar HTML yang mencakup elemen-elemen penting seperti struktur halaman, heading, paragraf, tautan, gambar, daftar, dan form. Kursus ini memberikan pemahaman awal dalam membangun kerangka dasar sebuah halaman web.",
-      image: "/public/img/sertifikat/Sertifikat Sololearn HTML.jpg",
+      image: "/img/sertifikat/Sertifikat Sololearn HTML.jpg",
       credentialUrl: "#",
       skills: ["HTML"],
     },
@@ -204,7 +204,7 @@ const Portfolio: React.FC = () => {
       date: "3 September 2023",
       description:
         "Menyelesaikan kursus pengantar CSS yang membahas dasar-dasar styling seperti selektor, properti warna, font, margin, padding, border, layout, dan responsive design. Kursus ini memberikan pemahaman awal dalam mempercantik tampilan halaman web.",
-      image: "/public/img/sertifikat/Sertifikat Sololearn CSS.jpg",
+      image: "/img/sertifikat/Sertifikat Sololearn CSS.jpg",
       credentialUrl: "#",
       skills: ["CSS"],
     },
@@ -214,7 +214,7 @@ const Portfolio: React.FC = () => {
       date: "30 April 2023",
       description:
         "Menyelesaikan kursus pengantar C++ yang mencakup konsep dasar pemrograman seperti variabel, tipe data, operator, kontrol alur, fungsi, array, dan dasar pemrograman berorientasi objek (OOP). Kursus ini memberikan fondasi kuat dalam pemrograman menggunakan C++.",
-      image: "/public/img/sertifikat/Sertifikat Sololearn C++.jpg",
+      image: "/img/sertifikat/Sertifikat Sololearn C++.jpg",
       credentialUrl: "#",
       skills: ["C++"],
     },
@@ -225,7 +225,7 @@ const Portfolio: React.FC = () => {
       description:
         "Menyelesaikan pelatihan pengantar UI Design yang membahas prinsip dasar desain antarmuka, seperti hirarki visual, konsistensi, wireframing, dan user flow. Kursus ini memberikan pemahaman awal dalam menciptakan tampilan aplikasi yang intuitif dan menarik.",
       image:
-        "/public/img/sertifikat/Sertifikat UI Design Introduction.jpg",
+        "/img/sertifikat/Sertifikat UI Design Introduction.jpg",
       credentialUrl: "#",
       skills: ["UI Design"],
     },
@@ -236,7 +236,7 @@ const Portfolio: React.FC = () => {
       description:
         "Mempelajari elemen-elemen penting dalam desain seperti warna, tipografi, bentuk, ruang, dan kontras. Kursus ini memperkuat kemampuan dalam memilih dan menggabungkan elemen desain untuk menciptakan komposisi yang efektif dan harmonis.",
       image:
-        "/public/img/sertifikat/Sertifikat UI Design Introduction.jpg",
+        "/img/sertifikat/Sertifikat UI Design Introduction.jpg",
       credentialUrl: "#",
       skills: ["UI Design"],
     },
@@ -322,7 +322,7 @@ const Portfolio: React.FC = () => {
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl opacity-20 blur-xl"></div>
                   <img
-                    src="/public/img/myself/santai.jpg"
+                    src="/img/myself/santai.jpg"
                     alt="Profile"
                     className="relative rounded-2xl shadow-2xl"
                   />
