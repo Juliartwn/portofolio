@@ -293,18 +293,18 @@ const Portfolio: React.FC = () => {
   ];
 
   const technologies = [
-    { name: "HTML5", icon: "/public/svg/HTML5-icon.svg" },
-    { name: "CSS3", icon: "/public/svg/CSS3-icon.svg" },
-    { name: "JavaScript", icon: "/public/svg/JavaScript-icon.svg" },
-    { name: "TypeScript", icon: "/public/svg/Typescript-icon.svg" },
-    { name: "Python", icon: "/public/svg/Python-iconsvg.svg" },
-    { name: "PHP", icon: "/public/svg/PHP-icon.svg" },
-    { name: "TailwindCSS", icon: "/public/svg/Tailwind-CSS-icon.svg" },
-    { name: "React", icon: "/public/svg/React-icon.svg" },
-    { name: "Laravel", icon: "/public/svg/Laravel.svg" },
-    { name: "MySQL", icon: "/public/svg/MySQL-icon.svg" },
-    { name: "Figma", icon: "/public/svg/Figma-icon.svg" },
-    { name: "Git", icon: "/public/svg/Git-icon.svg" },
+    { name: "HTML5", icon: "/svg/HTML5-icon.svg" },
+    { name: "CSS3", icon: "/svg/CSS3-icon.svg" },
+    { name: "JavaScript", icon: "/svg/JavaScript-icon.svg" },
+    { name: "TypeScript", icon: "/svg/Typescript-icon.svg" },
+    { name: "Python", icon: "/svg/Python-iconsvg.svg" },
+    { name: "PHP", icon: "/svg/PHP-icon.svg" },
+    { name: "TailwindCSS", icon: "/svg/Tailwind-CSS-icon.svg" },
+    { name: "React", icon: "/svg/React-icon.svg" },
+    { name: "Laravel", icon: "/svg/Laravel.svg" },
+    { name: "MySQL", icon: "/svg/MySQL-icon.svg" },
+    { name: "Figma", icon: "/svg/Figma-icon.svg" },
+    { name: "Git", icon: "/svg/Git-icon.svg" },
   ];
 
   return (
