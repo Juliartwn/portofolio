@@ -4,10 +4,8 @@ import Navbar from "../layouts/Navbar";
 import Hero from "../layouts/Hero";
 import Footer from "../layouts/Footer";
 import ProjectCard from "../layouts/ProjectCard";
-import SkillCard from "../layouts/SkillCard";
 import ContactForm from "../layouts/ContactForm";
 import CertificateCard from "../layouts/CertificateCard";
-import Badge from "../ui/Badge";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Portfolio: React.FC = () => {
@@ -149,8 +147,7 @@ const Portfolio: React.FC = () => {
       title: "GymApp",
       description:
         "Website manajemen gym yang dibangun dengan Laravel dan Tailwind CSS.",
-      image:
-        "/img/project/GymApp/GymApp_1.png",
+      image: "/img/project/GymApp/GymApp_1.png",
       images: [
         "/img/project/GymApp/GymApp_1.png",
         "/img/project/GymApp/GymApp_2.png",
@@ -171,7 +168,7 @@ const Portfolio: React.FC = () => {
         "Pengelolaan jadwal kelas",
         "Pengelolaan transaksi pembayaran",
         "Pengelolaan fasilitas gym",
-      ]
+      ],
     },
   ];
 
@@ -224,8 +221,7 @@ const Portfolio: React.FC = () => {
       date: "13 May 2023",
       description:
         "Menyelesaikan pelatihan pengantar UI Design yang membahas prinsip dasar desain antarmuka, seperti hirarki visual, konsistensi, wireframing, dan user flow. Kursus ini memberikan pemahaman awal dalam menciptakan tampilan aplikasi yang intuitif dan menarik.",
-      image:
-        "/img/sertifikat/Sertifikat UI Design Introduction.jpg",
+      image: "/img/sertifikat/Sertifikat UI Design Introduction.jpg",
       credentialUrl: "#",
       skills: ["UI Design"],
     },
@@ -235,8 +231,7 @@ const Portfolio: React.FC = () => {
       date: "13 May 2023",
       description:
         "Mempelajari elemen-elemen penting dalam desain seperti warna, tipografi, bentuk, ruang, dan kontras. Kursus ini memperkuat kemampuan dalam memilih dan menggabungkan elemen desain untuk menciptakan komposisi yang efektif dan harmonis.",
-      image:
-        "/img/sertifikat/Sertifikat UI Design Introduction.jpg",
+      image: "/img/sertifikat/Sertifikat UI Design Introduction.jpg",
       credentialUrl: "#",
       skills: ["UI Design"],
     },
@@ -246,47 +241,70 @@ const Portfolio: React.FC = () => {
     ? certificates
     : certificates.slice(0, 6);
 
+  const [openSkillIndex, setOpenSkillIndex] = useState<number | null>(null);
+
+  const toggleSkill = (index: number) => {
+    setOpenSkillIndex(openSkillIndex === index ? null : index);
+  };
+
   const skillCategories = [
     {
-      icon: <Code2 className="w-8 h-8" />,
-      title: "Frontend Development",
-      skills: [
-        { name: "React", level: 90 },
-        { name: "TypeScript", level: 85 },
-        { name: "Tailwind CSS", level: 95 },
+      icon: <Code2 className="w-6 h-6" />,
+      title: "Web Development",
+      details: [
+        "Fullstack web applications (frontend & backend)",
+        "Modern frameworks: React, Laravel",
+        "API integration & RESTful services",
+        "Responsive and optimized user interfaces",
       ],
     },
     {
-      icon: <Database className="w-8 h-8" />,
-      title: "Backend Development",
-      skills: [
-        { name: "Laravel", level: 85 },
-        { name: "PHP", level: 80 },
-        { name: "MySQL", level: 80 },
+      icon: <Database className="w-6 h-6" />,
+      title: "Database & Server",
+      details: [
+        "Database design (MySQL, PostgreSQL, SQLite)",
+        "Server management & deployment",
+        "Authentication & authorization systems",
       ],
     },
     {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Tools & Others",
-      skills: [
-        { name: "Git", level: 90 },
-        { name: "VS Code", level: 95 },
-        { name: "Figma", level: 85 },
+      icon: (
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"
+          />
+        </svg>
+      ),
+      title: "UI/UX Design & Prototyping",
+      details: [
+        "UI design using Figma & Tailwind CSS",
+        "UX improvement based on user behavior",
+        "Prototyping and wireframing for web apps",
       ],
     },
   ];
 
-  const otherTechnologies = [
-    "GraphQL",
-    "Redux",
-    "Jest",
-    "Webpack",
-    "Sass",
-    "Material-UI",
-    "Firebase",
-    "Vercel",
-    "Nginx",
-    "Linux",
+  const technologies = [
+    { name: "HTML5", icon: "/public/svg/HTML5-icon.svg" },
+    { name: "CSS3", icon: "/public/svg/CSS3-icon.svg" },
+    { name: "JavaScript", icon: "/public/svg/JavaScript-icon.svg" },
+    { name: "TypeScript", icon: "/public/svg/Typescript-icon.svg" },
+    { name: "Python", icon: "/public/svg/Python-iconsvg.svg" },
+    { name: "PHP", icon: "/public/svg/PHP-icon.svg" },
+    { name: "TailwindCSS", icon: "/public/svg/Tailwind-CSS-icon.svg" },
+    { name: "React", icon: "/public/svg/React-icon.svg" },
+    { name: "Laravel", icon: "/public/svg/Laravel.svg" },
+    { name: "MySQL", icon: "/public/svg/MySQL-icon.svg" },
+    { name: "Figma", icon: "/public/svg/Figma-icon.svg" },
+    { name: "Git", icon: "/public/svg/Git-icon.svg" },
   ];
 
   return (
@@ -560,52 +578,154 @@ const Portfolio: React.FC = () => {
       {/* Skills Section */}
       <section
         id="skills"
-        className="py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 text-white"
+        className="py-20 bg-slate-900 text-white border-t border-slate-800"
       >
         <div className="container mx-auto px-6">
-          <div
-            ref={skillsTitle.ref}
-            className={`text-center mb-16 scroll-reveal ${
-              skillsTitle.isVisible ? "animate-fade-in-down" : ""
-            }`}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
-              Skills & Expertise
-            </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              A comprehensive overview of my technical skills and proficiency
-              levels across various domains.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skillCategories.map((category, index) => {
-              const skillReveal = useScrollReveal();
-              return (
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+              {/* Left Side - Skills List */}
+              <div>
                 <div
-                  key={index}
-                  ref={skillReveal.ref}
-                  className={`scroll-reveal ${
-                    skillReveal.isVisible ? "animate-fade-in-up" : ""
+                  ref={skillsTitle.ref}
+                  className={`mb-8 scroll-reveal ${
+                    skillsTitle.isVisible ? "animate-fade-in-down" : ""
                   }`}
-                  style={{ animationDelay: `${index * 0.15}s` }}
                 >
-                  <SkillCard {...category} />
+                  <p className="text-purple-400 font-semibold mb-2 text-sm uppercase tracking-wider animate-pulse">
+                    My Skills
+                  </p>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                    What I do?
+                  </h2>
                 </div>
-              );
-            })}
-          </div>
 
-          <div className="mt-12 text-center">
-            <h3 className="text-xl font-semibold mb-4 text-gray-300">
-              Other Technologies
-            </h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {otherTechnologies.map((tech, index) => (
-                <Badge key={index} variant="info">
-                  {tech}
-                </Badge>
-              ))}
+                <ul className="space-y-4">
+                  {skillCategories.map((category, index) => {
+                    const isOpen = openSkillIndex === index;
+                    return (
+                      <li key={index} className="w-full">
+                        <div className="bg-slate-800/30 rounded-2xl border border-slate-700/50 hover:border-purple-500/50 transition-all overflow-hidden">
+                          <div
+                            className="flex items-center gap-3 p-4 cursor-pointer"
+                            onClick={() => toggleSkill(index)}
+                          >
+                            <div className="text-purple-400 opacity-70">
+                              {category.icon}
+                            </div>
+                            <div className="flex items-center gap-2 flex-grow justify-between">
+                              <span className="text-white text-lg font-medium">
+                                {category.title}
+                              </span>
+                              <svg
+                                className={`w-6 h-6 text-white transform transition-transform duration-300 ${
+                                  isOpen ? "rotate-180" : ""
+                                }`}
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div
+                            className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                              isOpen
+                                ? "max-h-96 opacity-100"
+                                : "max-h-0 opacity-0"
+                            }`}
+                          >
+                            <ul className="space-y-2 text-gray-400 text-sm px-4 pb-4">
+                              {category.details.map((detail, idx) => (
+                                <li key={idx} className="flex items-start">
+                                  <span className="text-purple-400 mr-2">
+                                    ✓
+                                  </span>
+                                  <span>{detail}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              {/* Right Side - Code Animation */}
+              <div className="hidden lg:block">
+                <div className="relative w-full h-[400px] bg-slate-950/50 rounded-2xl border border-slate-800 overflow-hidden p-6">
+                  <div className="Mono text-xs leading-relaxed opacity-40 text-purple-400 space-y-2">
+                    <div className="animate-pulse">
+                      <span className="text-blue-400">const</span>{" "}
+                      <span className="text-yellow-400">developer</span> ={" "}
+                      <span className="text-green-400">{"{"}</span>
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-gray-500">name:</span>{" "}
+                      <span className="text-orange-400">'Juli Artawan'</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-gray-500">skills:</span> [
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-orange-400">'React'</span>,{" "}
+                      <span className="text-orange-400">'Laravel'</span>,
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-orange-400">'TypeScript'</span>,{" "}
+                      <span className="text-orange-400">'Tailwind'</span>
+                    </div>
+                    <div className="pl-4">],</div>
+                    <div className="pl-4">
+                      <span className="text-gray-500">passion:</span>{" "}
+                      <span className="text-blue-400">Infinity</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-gray-500">
+                        createAwesomeProject:
+                      </span>{" "}
+                      <span className="text-purple-400">function</span>() {"{"}
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-pink-400">return</span>{" "}
+                      <span className="text-orange-400">'Amazing!'</span>;
+                    </div>
+                    <div className="pl-4">{"}"}</div>
+                    <div>
+                      <span className="text-green-400">{"}"}</span>;
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Infinite Scrolling Tech Stack */}
+            <div className="mt-16 relative overflow-hidden py-8">
+              {/* Gradient Overlays */}
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10"></div>
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10"></div>
+
+              {/* Scrolling Container */}
+              <div className="flex gap-12 animate-scroll">
+                {/* Duplicate items for seamless loop */}
+                {[...technologies, ...technologies, ...technologies].map(
+                  (tech, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 group transition-all duration-300 hover:scale-110 flex-shrink-0"
+                    >
+                      <div className="text-4xl opacity-60 group-hover:opacity-100 transition-opacity">
+                        <img src={tech.icon} alt="" className="h-8" />
+                      </div>
+                      <span className="text-lg font-medium text-gray-400 group-hover:text-white transition-colors whitespace-nowrap">
+                        {tech.name}
+                      </span>
+                    </div>
+                  )
+                )}
+              </div>
             </div>
           </div>
         </div>
