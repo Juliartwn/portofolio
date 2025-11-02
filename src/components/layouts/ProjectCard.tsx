@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { ExternalLink, Github, Eye, Figma, Code } from 'lucide-react';
-import Card from '../ui/Card';
-import Badge from '../ui/Badge';
-import Modal from '../ui/Modal';
-import Carousel from '../ui/Carousel';
+import React, { useState } from "react";
+import { ExternalLink, Github, Eye, Figma, Code } from "lucide-react";
+import Card from "../ui/Card";
+import Badge from "../ui/Badge";
+import Modal from "../ui/Modal";
+import Carousel from "../ui/Carousel";
 
 interface ProjectCardProps {
   title: string;
@@ -14,7 +14,7 @@ interface ProjectCardProps {
   github?: string;
   demo?: string;
   figma?: string;
-  type: 'development' | 'design' | 'both';
+  type: "development" | "design" | "both";
   fullDescription?: string;
   features?: string[];
   className?: string;
@@ -32,7 +32,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   type,
   fullDescription,
   features = [],
-  className = ''
+  className = "",
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -41,11 +41,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   const getTypeIcon = () => {
     switch (type) {
-      case 'development':
+      case "development":
         return <Code className="w-4 h-4" />;
-      case 'design':
+      case "design":
         return <Figma className="w-4 h-4" />;
-      case 'both':
+      case "both":
         return (
           <div className="flex gap-1">
             <Code className="w-4 h-4" />
@@ -57,12 +57,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   const getTypeLabel = () => {
     switch (type) {
-      case 'development':
-        return 'Development';
-      case 'design':
-        return 'UI/UX Design';
-      case 'both':
-        return 'Full Project';
+      case "development":
+        return "Development";
+      case "design":
+        return "UI/UX Design";
+      case "both":
+        return "Full Project";
     }
   };
 
@@ -70,22 +70,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <>
       <Card className={`group ${className}`}>
         <div className="relative overflow-hidden h-48">
-          {allImages.length > 1 ? (
-            <Carousel 
-              images={allImages} 
-              alt={title}
-              className="w-full h-full"
-              showIndicators={true}
-            />
-          ) : (
-            <img
-              src={allImages[0]}
-              alt={title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-            />
-          )}
+          {/* Always show only the first image in card preview */}
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          />
+
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60 pointer-events-none"></div>
-          
+
           {/* Type Badge */}
           <div className="absolute top-4 right-4">
             <div className="flex items-center gap-2 px-3 py-1.5 bg-purple-500/20 backdrop-blur-sm rounded-full border border-purple-500/30 text-purple-300 text-xs font-medium">
@@ -99,7 +92,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <h3 className="text-xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors duration-300">
             {title}
           </h3>
-          <p className="text-gray-400 mb-4 text-sm line-clamp-2">{description}</p>
+          <p className="text-gray-400 mb-4 text-sm line-clamp-2">
+            {description}
+          </p>
 
           <div className="flex flex-wrap gap-2 mb-4">
             {tags.slice(0, 3).map((tag, index) => (
@@ -172,8 +167,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="space-y-6">
           {/* Project Images Carousel */}
           {allImages.length > 1 ? (
-            <Carousel 
-              images={allImages} 
+            <Carousel
+              images={allImages}
               alt={title}
               className="w-full h-96 rounded-xl"
               showIndicators={true}
@@ -198,7 +193,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
           {/* Description */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-3">About This Project</h4>
+            <h4 className="text-lg font-semibold text-white mb-3">
+              About This Project
+            </h4>
             <p className="text-gray-300 leading-relaxed">
               {fullDescription || description}
             </p>
@@ -207,10 +204,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {/* Features */}
           {features.length > 0 && (
             <div>
-              <h4 className="text-lg font-semibold text-white mb-3">Key Features</h4>
+              <h4 className="text-lg font-semibold text-white mb-3">
+                Key Features
+              </h4>
               <ul className="space-y-2">
                 {features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-3 text-gray-300">
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-gray-300"
+                  >
                     <span className="text-purple-400 mt-1">✓</span>
                     <span>{feature}</span>
                   </li>
@@ -221,7 +223,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
           {/* Technologies */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-3">Technologies Used</h4>
+            <h4 className="text-lg font-semibold text-white mb-3">
+              Technologies Used
+            </h4>
             <div className="flex flex-wrap gap-2">
               {tags.map((tag, index) => (
                 <Badge key={index} variant="primary" size="md">
