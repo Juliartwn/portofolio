@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="text-gray-400 text-sm">Built with</span>
                   <div className="flex items-center gap-2">
-                    <img src="/public/svg/React-icon.svg" alt="Tailwind CSS" className="h-7" />
+                    <img src="/svg/React-icon.svg" alt="Tailwind CSS" className="h-7" />
                     <span className="text-gray-300 text-sm font-medium">
                       React
                     </span>
@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="text-gray-400 text-sm">Styled with</span>
                   <div className="flex items-center gap-2">
-                    <img src="/public/svg/Tailwind-CSS-icon.svg" alt="Tailwind CSS" className="h-5"/>
+                    <img src="/svg/Tailwind-CSS-icon.svg" alt="Tailwind CSS" className="h-5"/>
                     <span className="text-gray-300 text-sm font-medium">
                       Tailwind CSS
                     </span>
@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="text-gray-400 text-sm">Deployed on</span>
                   <div className="flex items-center gap-2">
-                    <img src="/public/svg/Vercel-icon.svg" alt="Vercel" className="h-7"/>
+                    <img src="/svg/Vercel-icon.svg" alt="Vercel" className="h-7"/>
                     <span className="text-gray-300 text-sm font-medium">
                       Vercel
                     </span>
