@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Code2, Database, Zap, ArrowUp } from "lucide-react";
+import { Code2, Database, ArrowUp } from "lucide-react";
 import Navbar from "../layouts/Navbar";
 import Hero from "../layouts/Hero";
 import Footer from "../layouts/Footer";
