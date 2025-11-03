@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Github, Linkedin, Instagram, Heart } from "lucide-react";
+import { RiReactjsFill, RiTailwindCssFill, RiVercelFill } from 'react-icons/ri';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  const [likes, setLikes] = useState(123);
+  const [likes, setLikes] = useState(99);
   const [isLiked, setIsLiked] = useState(false);
 
   const handleLike = () => {
@@ -86,7 +87,7 @@ const Footer: React.FC = () => {
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="text-gray-400 text-sm">Built with</span>
                   <div className="flex items-center gap-2">
-                    <img src="/svg/React-icon.svg" alt="Tailwind CSS" className="h-7" />
+                    <RiReactjsFill className="text-3xl" />
                     <span className="text-gray-300 text-sm font-medium">
                       React
                     </span>
@@ -96,7 +97,7 @@ const Footer: React.FC = () => {
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="text-gray-400 text-sm">Styled with</span>
                   <div className="flex items-center gap-2">
-                    <img src="/svg/Tailwind-CSS-icon.svg" alt="Tailwind CSS" className="h-5"/>
+                    <RiTailwindCssFill className="text-3xl" />
                     <span className="text-gray-300 text-sm font-medium">
                       Tailwind CSS
                     </span>
@@ -106,7 +107,7 @@ const Footer: React.FC = () => {
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="text-gray-400 text-sm">Deployed on</span>
                   <div className="flex items-center gap-2">
-                    <img src="/svg/Vercel-icon.svg" alt="Vercel" className="h-7"/>
+                    <RiVercelFill className="text-2xl" />
                     <span className="text-gray-300 text-sm font-medium">
                       Vercel
                     </span>
