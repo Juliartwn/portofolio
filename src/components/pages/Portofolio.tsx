@@ -669,12 +669,24 @@ const Portfolio: React.FC = () => {
                       <span className="text-gray-500">skills:</span> [
                     </div>
                     <div className="pl-8">
-                      <span className="text-orange-400">'React'</span>,{" "}
-                      <span className="text-orange-400">'Laravel'</span>,
+                      <span className="text-orange-400">'HTML5'</span>,{" "}
+                      <span className="text-orange-400">'CSS3'</span>,{" "}
+                      <span className="text-orange-400">'JavaScript'</span>
                     </div>
                     <div className="pl-8">
                       <span className="text-orange-400">'TypeScript'</span>,{" "}
+                      <span className="text-orange-400">'PHP'</span>,{" "}
+                      <span className="text-orange-400">'Python'</span>
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-orange-400">'React'</span>,{" "}
+                      <span className="text-orange-400">'Laravel'</span>,{" "}
                       <span className="text-orange-400">'Tailwind'</span>
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-orange-400">'MySQL'</span>,{" "}
+                      <span className="text-orange-400">'Git'</span>,{" "}
+                      <span className="text-orange-400">'Figma'</span>
                     </div>
                     <div className="pl-4">],</div>
                     <div className="pl-4">
