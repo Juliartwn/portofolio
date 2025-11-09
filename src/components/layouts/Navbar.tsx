@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-slate-900/95 backdrop-blur-md shadow-lg"
+          ? "bg-neutral-900/95 backdrop-blur-md shadow-lg"
           : "bg-transparent"
       }`}
     >
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           <a
             href="#home"
-            className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400"
+            className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500"
           >
             Julltwn
           </a>
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className={`relative text-gray-300 hover:text-white transition-colors duration-300 group ${
+                className={`relative text-neutral-300 hover:text-white transition-colors duration-300 group ${
                   activeSection === item.href.replace("#", "")
                     ? "text-white"
                     : ""
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
               >
                 {item.name}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 ${
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary-400 to-primary-500 transition-all duration-300 ${
                     activeSection === item.href.replace("#", "")
                       ? "w-full"
                       : "w-0 group-hover:w-full"
@@ -102,12 +102,12 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-4 bg-slate-800/50 backdrop-blur-md rounded-lg p-4">
+          <div className="md:hidden mt-4 pb-4 space-y-4 bg-neutral-800/50 backdrop-blur-md rounded-lg p-4">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className={`block text-gray-300 hover:text-white transition-colors duration-300 py-2 ${
+                className={`block text-neutral-300 hover:text-white transition-colors duration-300 py-2 ${
                   activeSection === item.href.replace("#", "")
                     ? "text-white font-semibold"
                     : ""

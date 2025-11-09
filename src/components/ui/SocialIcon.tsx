@@ -16,9 +16,9 @@ const SocialIcon: React.FC<SocialIconProps> = ({
   className = ''
 }) => {
   const variants = {
-    default: 'bg-slate-800 hover:bg-slate-700',
+    default: 'bg-neutral-800 hover:bg-neutral-700',
     glass: 'bg-white/10 hover:bg-white/20 backdrop-blur-sm',
-    gradient: 'bg-gradient-to-br from-purple-500 to-blue-500 hover:shadow-lg'
+    gradient: 'bg-gradient-to-br from-primary-500 to-primary-600 hover:shadow-lg'
   };
 
   return (

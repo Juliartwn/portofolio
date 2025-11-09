@@ -308,12 +308,12 @@ const Portfolio: React.FC = () => {
   ];
 
   return (
-    <div className="bg-slate-900 min-h-screen">
+    <div className="bg-neutral-900 min-h-screen">
       <Navbar />
       <Hero />
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-slate-800 text-white">
+      <section id="about" className="py-20 bg-neutral-800 text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div
@@ -322,10 +322,10 @@ const Portfolio: React.FC = () => {
                 aboutTitle.isVisible ? "animate-fade-in-down" : ""
               }`}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
                 About Me
               </h2>
-              <p className="text-gray-400 text-center mb-16 text-lg">
+              <p className="text-neutral-400 text-center mb-16 text-lg">
                 Get to know me better
               </p>
             </div>
@@ -338,7 +338,7 @@ const Portfolio: React.FC = () => {
                 }`}
               >
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl opacity-20 blur-xl"></div>
+                  <div className="absolute -inset-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl opacity-20 blur-xl"></div>
                   <img
                     src="/img/myself/santai.jpg"
                     alt="Profile"
@@ -352,19 +352,19 @@ const Portfolio: React.FC = () => {
                   aboutText.isVisible ? "animate-fade-in-right" : ""
                 }`}
               >
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-neutral-300 leading-relaxed text-lg">
                   Hi! I'm a passionate student in the field of technology with a
                   strong interest in web development, UI/UX design, and machine
                   learning.
                 </p>
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-neutral-300 leading-relaxed text-lg">
                   I love creating digital solutions that are not only visually
                   appealing but also functional and impactful. I believe
                   technology should make life easier, and I'm continuously
                   learning to build projects that combine design, data, and
                   innovation.
                 </p>
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-neutral-300 leading-relaxed text-lg">
                   Currently, I'm focused on honing my skills in web development
                   and UI/UX design, and I hope to make a positive impact in the
                   world through my work.
@@ -373,13 +373,13 @@ const Portfolio: React.FC = () => {
                 <div className="flex gap-4 pt-4">
                   <a
                     href="#contact"
-                    className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                    className="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
                   >
                     Let's Talk
                   </a>
                   <a
                     href="#"
-                    className="px-6 py-3 border-2 border-purple-500 text-purple-400 font-semibold rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300"
+                    className="px-6 py-3 border-2 border-primary-500 text-primary-400 font-semibold rounded-full hover:bg-primary-500 hover:text-white transition-all duration-300"
                   >
                     Download CV
                   </a>
@@ -400,66 +400,19 @@ const Portfolio: React.FC = () => {
                   <div
                     key={index}
                     ref={statReveal.ref}
-                    className={`text-center p-6 bg-slate-900 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-all duration-300 scroll-reveal ${
+                    className={`text-center p-6 bg-neutral-900 rounded-xl border border-neutral-700 hover:border-primary-500/50 transition-all duration-300 scroll-reveal ${
                       statReveal.isVisible ? "animate-zoom-in" : ""
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <h3 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400 mb-2">
+                    <h3 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500 mb-2">
                       {stat.number}
                     </h3>
-                    <p className="text-gray-400 text-sm">{stat.label}</p>
+                    <p className="text-neutral-400 text-sm">{stat.label}</p>
                   </div>
                 );
               })}
             </div>
-
-            {/* Journey Timeline */}
-            {/* <div className="space-y-8">
-              <h3 className="text-2xl md:text-3xl font-bold text-center mb-8">
-                My Journey
-              </h3>
-              <div className="space-y-6">
-                {[
-                  {
-                    year: "2025 - Present",
-                    title: "Frond-End Developer",
-                    description:
-                      "Building modern web applications with React, Node.js, and exploring cloud technologies.",
-                  },
-                ].map((item, index) => {
-                  const timelineReveal = useScrollReveal();
-                  return (
-                    <div
-                      key={index}
-                      ref={timelineReveal.ref}
-                      className={`flex gap-6 scroll-reveal ${
-                        timelineReveal.isVisible ? "animate-fade-in-left" : ""
-                      }`}
-                      style={{ animationDelay: `${index * 0.15}s` }}
-                    >
-                      <div className="flex flex-col items-center">
-                        <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500"></div>
-                        {index < 2 && (
-                          <div className="w-0.5 h-full bg-gradient-to-b from-purple-500 to-blue-500 mt-2"></div>
-                        )}
-                      </div>
-                      <div className="flex-1 pb-8">
-                        <div className="bg-slate-900 p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-all duration-300">
-                          <span className="text-purple-400 text-sm font-semibold">
-                            {item.year}
-                          </span>
-                          <h4 className="text-xl font-bold text-white mt-2 mb-3">
-                            {item.title}
-                          </h4>
-                          <p className="text-gray-400">{item.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
@@ -467,7 +420,7 @@ const Portfolio: React.FC = () => {
       {/* Projects Section */}
       <section
         id="projects"
-        className="py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 text-white"
+        className="py-20 bg-gradient-to-br from-neutral-900 via-primary-900/20 to-neutral-900 text-white"
       >
         <div className="container mx-auto px-6">
           <div
@@ -476,10 +429,10 @@ const Portfolio: React.FC = () => {
               projectsTitle.isVisible ? "animate-fade-in-down" : ""
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
               Featured Projects
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
               A collection of my recent work and personal projects that showcase
               my skills and passion for development.
             </p>
@@ -499,7 +452,7 @@ const Portfolio: React.FC = () => {
                 >
                   <ProjectCard
                     {...project}
-                    className="bg-slate-900 border border-slate-700 hover:border-purple-500/50"
+                    className="bg-neutral-900 border border-neutral-700 hover:border-primary-500/50"
                   />
                 </div>
               );
@@ -510,7 +463,7 @@ const Portfolio: React.FC = () => {
             <div className="text-center mt-12">
               <button
                 onClick={() => setShowAllProjects(!showAllProjects)}
-                className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className="px-8 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
               >
                 {showAllProjects
                   ? "Show Less"
@@ -524,7 +477,7 @@ const Portfolio: React.FC = () => {
       {/* Certificates Section */}
       <section
         id="certificates"
-        className="py-20 bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 text-white"
+        className="py-20 bg-gradient-to-br from-neutral-800 via-neutral-800 to-neutral-900 text-white"
       >
         <div className="container mx-auto px-6">
           <div
@@ -533,10 +486,10 @@ const Portfolio: React.FC = () => {
               certificatesTitle.isVisible ? "animate-fade-in-down" : ""
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
               Certificates & Achievements
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
               Professional certifications and courses I've completed to enhance
               my skills and stay updated with industry standards.
             </p>
@@ -564,7 +517,7 @@ const Portfolio: React.FC = () => {
             <div className="text-center mt-12">
               <button
                 onClick={() => setShowAllCertificates(!showAllCertificates)}
-                className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className="px-8 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
               >
                 {showAllCertificates
                   ? "Show Less"
@@ -578,7 +531,7 @@ const Portfolio: React.FC = () => {
       {/* Skills Section */}
       <section
         id="skills"
-        className="py-20 bg-slate-900 text-white border-t border-slate-800"
+        className="py-20 bg-neutral-900 text-white border-t border-neutral-800"
       >
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
@@ -591,7 +544,7 @@ const Portfolio: React.FC = () => {
                     skillsTitle.isVisible ? "animate-fade-in-down" : ""
                   }`}
                 >
-                  <p className="text-purple-400 font-semibold mb-2 text-sm uppercase tracking-wider animate-pulse">
+                  <p className="text-primary-400 font-semibold mb-2 text-sm uppercase tracking-wider animate-pulse">
                     My Skills
                   </p>
                   <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -604,12 +557,12 @@ const Portfolio: React.FC = () => {
                     const isOpen = openSkillIndex === index;
                     return (
                       <li key={index} className="w-full">
-                        <div className="bg-slate-800/30 rounded-2xl border border-slate-700/50 hover:border-purple-500/50 transition-all overflow-hidden">
+                        <div className="bg-neutral-800/30 rounded-2xl border border-neutral-700/50 hover:border-primary-500/50 transition-all overflow-hidden">
                           <div
                             className="flex items-center gap-3 p-4 cursor-pointer"
                             onClick={() => toggleSkill(index)}
                           >
-                            <div className="text-purple-400 opacity-70">
+                            <div className="text-primary-400 opacity-70">
                               {category.icon}
                             </div>
                             <div className="flex items-center gap-2 flex-grow justify-between">
@@ -634,10 +587,10 @@ const Portfolio: React.FC = () => {
                                 : "max-h-0 opacity-0"
                             }`}
                           >
-                            <ul className="space-y-2 text-gray-400 text-sm px-4 pb-4">
+                            <ul className="space-y-2 text-neutral-400 text-sm px-4 pb-4">
                               {category.details.map((detail, idx) => (
                                 <li key={idx} className="flex items-start">
-                                  <span className="text-purple-400 mr-2">
+                                  <span className="text-primary-400 mr-2">
                                     ✓
                                   </span>
                                   <span>{detail}</span>
@@ -654,19 +607,19 @@ const Portfolio: React.FC = () => {
 
               {/* Right Side - Code Animation */}
               <div className="hidden lg:block">
-                <div className="relative w-full h-[400px] bg-slate-950/50 rounded-2xl border border-slate-800 overflow-hidden p-6">
-                  <div className="Mono text-xs leading-relaxed opacity-40 text-purple-400 space-y-2">
+                <div className="relative w-full h-[400px] bg-neutral-950/50 rounded-2xl border border-neutral-800 overflow-hidden p-6">
+                  <div className="Mono text-xs leading-relaxed opacity-40 text-primary-400 space-y-2">
                     <div className="animate-pulse">
-                      <span className="text-blue-400">const</span>{" "}
+                      <span className="text-primary-500">const</span>{" "}
                       <span className="text-yellow-400">developer</span> ={" "}
                       <span className="text-green-400">{"{"}</span>
                     </div>
                     <div className="pl-4">
-                      <span className="text-gray-500">name:</span>{" "}
+                      <span className="text-neutral-500">name:</span>{" "}
                       <span className="text-orange-400">'Juli Artawan'</span>,
                     </div>
                     <div className="pl-4">
-                      <span className="text-gray-500">skills:</span> [
+                      <span className="text-neutral-500">skills:</span> [
                     </div>
                     <div className="pl-8">
                       <span className="text-orange-400">'HTML5'</span>,{" "}
@@ -690,14 +643,14 @@ const Portfolio: React.FC = () => {
                     </div>
                     <div className="pl-4">],</div>
                     <div className="pl-4">
-                      <span className="text-gray-500">passion:</span>{" "}
-                      <span className="text-blue-400">Infinity</span>,
+                      <span className="text-neutral-500">passion:</span>{" "}
+                      <span className="text-primary-500">Infinity</span>,
                     </div>
                     <div className="pl-4">
-                      <span className="text-gray-500">
+                      <span className="text-neutral-500">
                         createAwesomeProject:
                       </span>{" "}
-                      <span className="text-purple-400">function</span>() {"{"}
+                      <span className="text-primary-400">function</span>() {"{"}
                     </div>
                     <div className="pl-8">
                       <span className="text-pink-400">return</span>{" "}
@@ -708,7 +661,7 @@ const Portfolio: React.FC = () => {
                       <span className="text-green-400">{"}"}</span>;
                     </div>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent pointer-events-none"></div>
                 </div>
               </div>
             </div>
@@ -716,8 +669,8 @@ const Portfolio: React.FC = () => {
             {/* Infinite Scrolling Tech Stack */}
             <div className="mt-16 relative overflow-hidden py-8">
               {/* Gradient Overlays */}
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10"></div>
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10"></div>
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-neutral-900 to-transparent z-10"></div>
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-neutral-900 to-transparent z-10"></div>
 
               {/* Scrolling Container */}
               <div className="flex gap-12 animate-scroll">
@@ -731,7 +684,7 @@ const Portfolio: React.FC = () => {
                       <div className="text-4xl opacity-60 group-hover:opacity-100 transition-opacity">
                         <img src={tech.icon} alt="" className="h-8" />
                       </div>
-                      <span className="text-lg font-medium text-gray-400 group-hover:text-white transition-colors whitespace-nowrap">
+                      <span className="text-lg font-medium text-neutral-400 group-hover:text-white transition-colors whitespace-nowrap">
                         {tech.name}
                       </span>
                     </div>
@@ -744,7 +697,7 @@ const Portfolio: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-slate-900 text-white">
+      <section id="contact" className="py-20 bg-neutral-900 text-white">
         <div className="container mx-auto px-6">
           <div
             ref={contactTitle.ref}
@@ -752,10 +705,10 @@ const Portfolio: React.FC = () => {
               contactTitle.isVisible ? "animate-fade-in-down" : ""
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
               Get In Touch
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
               Have a project in mind or want to collaborate? Feel free to reach
               out. I'd love to hear from you!
             </p>
@@ -785,7 +738,7 @@ const Portfolio: React.FC = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 p-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full shadow-2xl hover:shadow-purple-500/50 hover:scale-110 transition-all duration-300 animate-bounce hover:animate-none group"
+          className="fixed bottom-8 right-8 z-40 p-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full shadow-2xl hover:shadow-primary-500/50 hover:scale-110 transition-all duration-300 animate-bounce hover:animate-none group"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-6 h-6" />

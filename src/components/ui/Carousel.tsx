@@ -44,8 +44,8 @@ const Carousel: React.FC<CarouselProps> = ({
 
   if (images.length === 0) {
     return (
-      <div className={`flex items-center justify-center bg-slate-800 ${className}`}>
-        <p className="text-gray-400">No images available</p>
+      <div className={`flex items-center justify-center bg-neutral-800 ${className}`}>
+        <p className="text-neutral-400">No images available</p>
       </div>
     );
   }

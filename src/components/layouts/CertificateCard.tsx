@@ -27,36 +27,36 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
 
   return (
     <>
-      <Card className="group overflow-hidden bg-slate-900 border border-slate-700 hover:border-purple-500/50">
+      <Card className="group overflow-hidden bg-neutral-900 border border-neutral-700 hover:border-primary-500/50">
         <div className="relative overflow-hidden h-48">
           <img
             src={image}
             alt={title}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent"></div>
 
           <div className="absolute top-4 right-4">
-            <div className="p-2 bg-purple-500/20 backdrop-blur-sm rounded-full border border-purple-500/30">
-              <Award className="w-5 h-5 text-purple-300" />
+            <div className="p-2 bg-primary-500/20 backdrop-blur-sm rounded-full border border-primary-500/30">
+              <Award className="w-5 h-5 text-primary-300" />
             </div>
           </div>
         </div>
 
         <div className="p-6 space-y-4">
           <div>
-            <h3 className="text-xl font-bold text-white mb-1 group-hover:text-purple-400 transition-colors duration-300">
+            <h3 className="text-xl font-bold text-white mb-1 group-hover:text-primary-400 transition-colors duration-300">
               {title}
             </h3>
-            <p className="text-purple-400 font-medium text-sm">{issuer}</p>
+            <p className="text-primary-400 font-medium text-sm">{issuer}</p>
           </div>
 
-          <div className="flex items-center gap-2 text-gray-400 text-sm">
+          <div className="flex items-center gap-2 text-neutral-400 text-sm">
             <Calendar className="w-4 h-4" />
             <span>{date}</span>
           </div>
 
-          <p className="text-gray-400 text-sm line-clamp-2">{description}</p>
+          <p className="text-neutral-400 text-sm line-clamp-2">{description}</p>
 
           <div className="flex flex-wrap gap-2">
             {skills.map((skill, index) => (
@@ -69,7 +69,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
           <div className="flex gap-3 pt-2">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors duration-300 text-sm font-medium group/btn"
+              className="flex items-center gap-2 text-primary-400 hover:text-primary-300 transition-colors duration-300 text-sm font-medium group/btn"
             >
               <Eye className="w-4 h-4" />
               <span>View Details</span>
@@ -80,7 +80,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
                 href={credentialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors duration-300 text-sm font-medium group/link"
+                className="flex items-center gap-2 text-primary-500 hover:text-primary-400 transition-colors duration-300 text-sm font-medium group/link"
               >
                 <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300" />
                 <span>Credential</span>
@@ -110,12 +110,12 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
           {/* Certificate Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-purple-500/20 rounded-lg">
-                <Award className="w-6 h-6 text-purple-400" />
+              <div className="p-3 bg-primary-500/20 rounded-lg">
+                <Award className="w-6 h-6 text-primary-400" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-white">{issuer}</h3>
-                <div className="flex items-center gap-2 text-gray-400 text-sm">
+                <div className="flex items-center gap-2 text-neutral-400 text-sm">
                   <Calendar className="w-4 h-4" />
                   <span>{date}</span>
                 </div>
@@ -126,7 +126,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
               <h4 className="text-md font-semibold text-white mb-2">
                 Description
               </h4>
-              <p className="text-gray-300 leading-relaxed">{description}</p>
+              <p className="text-neutral-300 leading-relaxed">{description}</p>
             </div>
 
             <div>
@@ -148,7 +148,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
                   href={credentialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   <ExternalLink className="w-5 h-5" />
                   <span>View Credential</span>

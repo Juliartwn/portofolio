@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full py-12 border-t border-slate-800 bg-slate-900 text-white">
+    <footer className="w-full py-12 border-t border-neutral-800 bg-neutral-900 text-white">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
                   href="https://instagram.com/julltwn"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-purple-600 to-pink-500 rounded-lg hover:scale-110 transition-transform duration-300"
+                  className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-primary-600 to-pink-500 rounded-lg hover:scale-110 transition-transform duration-300"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
                   href="https://linkedin.com/in/juliartawan"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg hover:scale-110 transition-transform duration-300"
+                  className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-primary-700 to-primary-800 rounded-lg hover:scale-110 transition-transform duration-300"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
                   href="https://github.com/juliartwn"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg hover:scale-110 transition-transform duration-300"
+                  className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-neutral-700 to-neutral-900 rounded-lg hover:scale-110 transition-transform duration-300"
                   aria-label="GitHub"
                 >
                   <Github className="w-5 h-5" />
@@ -58,22 +58,22 @@ const Footer: React.FC = () => {
               <div className="flex items-center gap-4">
                 <button
                   onClick={handleLike}
-                  className="group relative flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-full transition-all duration-300"
+                  className="group relative flex items-center gap-2 px-6 py-3 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-all duration-300"
                 >
                   <Heart
                     className={`w-5 h-5 transition-all duration-300 ${
                       isLiked
                         ? "fill-red-500 text-red-500 scale-110"
-                        : "text-gray-400 group-hover:text-red-400"
+                        : "text-neutral-400 group-hover:text-red-400"
                     }`}
                   />
-                  <span className="text-sm text-gray-300 group-hover:text-white">
+                  <span className="text-sm text-neutral-300 group-hover:text-white">
                     Likes
                   </span>
                 </button>
                 <span
                   className={`text-2xl font-bold transition-all duration-300 ${
-                    isLiked ? "text-red-500 scale-110" : "text-gray-400"
+                    isLiked ? "text-red-500 scale-110" : "text-neutral-400"
                   }`}
                 >
                   {likes}
@@ -85,30 +85,30 @@ const Footer: React.FC = () => {
             <div className="flex flex-col items-center space-y-6">
               <div className="grid grid-cols-1 gap-3 w-full max-w-xs py-6">
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="text-gray-400 text-sm">Built with</span>
+                  <span className="text-neutral-400 text-sm">Built with</span>
                   <div className="flex items-center gap-2">
                     <RiReactjsFill className="text-3xl" />
-                    <span className="text-gray-300 text-sm font-medium">
+                    <span className="text-neutral-300 text-sm font-medium">
                       React
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="text-gray-400 text-sm">Styled with</span>
+                  <span className="text-neutral-400 text-sm">Styled with</span>
                   <div className="flex items-center gap-2">
                     <RiTailwindCssFill className="text-3xl" />
-                    <span className="text-gray-300 text-sm font-medium">
+                    <span className="text-neutral-300 text-sm font-medium">
                       Tailwind CSS
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="text-gray-400 text-sm">Deployed on</span>
+                  <span className="text-neutral-400 text-sm">Deployed on</span>
                   <div className="flex items-center gap-2">
                     <RiVercelFill className="text-2xl" />
-                    <span className="text-gray-300 text-sm font-medium">
+                    <span className="text-neutral-300 text-sm font-medium">
                       Vercel
                     </span>
                   </div>
@@ -132,15 +132,15 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Bottom Copyright */}
-          <div className="mt-12 pt-8 border-t border-slate-800">
-            <p className="text-center text-sm text-gray-400">
+          <div className="mt-12 pt-8 border-t border-neutral-800">
+            <p className="text-center text-sm text-neutral-400">
               <span className="block sm:inline">
                 © {currentYear}{" "}
                 <a
                   href="https://julltwn.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-purple-400 hover:text-purple-300 transition-colors duration-300 font-medium"
+                  className="text-primary-400 hover:text-primary-300 transition-colors duration-300 font-medium"
                 >
                   Julltwn
                 </a>
