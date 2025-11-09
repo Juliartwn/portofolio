@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 const Portfolio: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
-  const [showAllCertificates, setShowAllCertificates] = useState(false);
 
   const aboutTitle = useScrollReveal();
   const aboutImage = useScrollReveal();
@@ -178,63 +177,27 @@ const Portfolio: React.FC = () => {
   const certificates = [
     {
       title: "Introduction to Python Certificate",
-      issuer: "Sololearn",
-      date: "22 March 2024",
-      description:
-        "Menyelesaikan kursus pengantar Python yang mencakup dasar-dasar pemrograman seperti variabel, tipe data, struktur kontrol, fungsi, dan pemrosesan data sederhana. Kursus ini memberikan pemahaman awal yang kuat untuk mengembangkan program Python dasar.",
       image: "/img/sertifikat/sertifikat sololearn Phyton.jpg",
-      credentialUrl: "#",
-      skills: ["Python"],
     },
     {
       title: "Introduction to HTML",
-      issuer: "Sololearn",
-      date: "31 August 2023",
-      description:
-        "Menyelesaikan kursus dasar HTML yang mencakup elemen-elemen penting seperti struktur halaman, heading, paragraf, tautan, gambar, daftar, dan form. Kursus ini memberikan pemahaman awal dalam membangun kerangka dasar sebuah halaman web.",
       image: "/img/sertifikat/Sertifikat Sololearn HTML.jpg",
-      credentialUrl: "#",
-      skills: ["HTML"],
     },
     {
       title: "Introduction to CSS Certificate",
-      issuer: "Sololearn",
-      date: "3 September 2023",
-      description:
-        "Menyelesaikan kursus pengantar CSS yang membahas dasar-dasar styling seperti selektor, properti warna, font, margin, padding, border, layout, dan responsive design. Kursus ini memberikan pemahaman awal dalam mempercantik tampilan halaman web.",
       image: "/img/sertifikat/Sertifikat Sololearn CSS.jpg",
-      credentialUrl: "#",
-      skills: ["CSS"],
     },
     {
       title: "Introduction to C++ Certificate",
-      issuer: "Sololearn",
-      date: "30 April 2023",
-      description:
-        "Menyelesaikan kursus pengantar C++ yang mencakup konsep dasar pemrograman seperti variabel, tipe data, operator, kontrol alur, fungsi, array, dan dasar pemrograman berorientasi objek (OOP). Kursus ini memberikan fondasi kuat dalam pemrograman menggunakan C++.",
       image: "/img/sertifikat/Sertifikat Sololearn C++.jpg",
-      credentialUrl: "#",
-      skills: ["C++"],
     },
     {
       title: "UI Design Introduction",
-      issuer: "MySkill",
-      date: "13 May 2023",
-      description:
-        "Menyelesaikan pelatihan pengantar UI Design yang membahas prinsip dasar desain antarmuka, seperti hirarki visual, konsistensi, wireframing, dan user flow. Kursus ini memberikan pemahaman awal dalam menciptakan tampilan aplikasi yang intuitif dan menarik.",
       image: "/img/sertifikat/Sertifikat UI Design Introduction.jpg",
-      credentialUrl: "#",
-      skills: ["UI Design"],
     },
     {
       title: "Design Elements Certificate",
-      issuer: "MySkill",
-      date: "13 May 2023",
-      description:
-        "Mempelajari elemen-elemen penting dalam desain seperti warna, tipografi, bentuk, ruang, dan kontras. Kursus ini memperkuat kemampuan dalam memilih dan menggabungkan elemen desain untuk menciptakan komposisi yang efektif dan harmonis.",
       image: "/img/sertifikat/Sertifikat UI Design Introduction.jpg",
-      credentialUrl: "#",
-      skills: ["UI Design"],
     },
   ];
 
