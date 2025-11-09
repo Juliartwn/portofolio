@@ -5,8 +5,9 @@ import Hero from "../layouts/Hero";
 import Footer from "../layouts/Footer";
 import ProjectCard from "../layouts/ProjectCard";
 import ContactForm from "../layouts/ContactForm";
-import CertificateCard from "../layouts/CertificateCard";
+import CertificateCarousel from "../layouts/CertificateCarousel";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { Link } from "react-router-dom";
 
 const Portfolio: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -236,10 +237,6 @@ const Portfolio: React.FC = () => {
       skills: ["UI Design"],
     },
   ];
-
-  const displayedCertificates = showAllCertificates
-    ? certificates
-    : certificates.slice(0, 6);
 
   const [openSkillIndex, setOpenSkillIndex] = useState<number | null>(null);
 
@@ -489,42 +486,45 @@ const Portfolio: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
               Certificates & Achievements
             </h2>
-            <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
-              Professional certifications and courses I've completed to enhance
-              my skills and stay updated with industry standards.
+            <p className="text-neutral-400 text-lg max-w-2xl mx-auto mb-4">
+              A showcase of my dedication, learning journey, and professional
+              growth.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedCertificates.map((certificate, index) => {
-              const certReveal = useScrollReveal();
-              return (
-                <div
-                  key={index}
-                  ref={certReveal.ref}
-                  className={`scroll-reveal ${
-                    certReveal.isVisible ? "animate-zoom-in" : ""
-                  }`}
-                  style={{ animationDelay: `${(index % 3) * 0.1}s` }}
-                >
-                  <CertificateCard {...certificate} />
-                </div>
-              );
-            })}
-          </div>
+          {/* Certificate Carousel */}
+          <CertificateCarousel
+            certificates={certificates.map((cert) => ({
+              image: cert.image,
+              title: cert.title,
+            }))}
+          />
 
-          {certificates.length > 6 && (
-            <div className="text-center mt-12">
-              <button
-                onClick={() => setShowAllCertificates(!showAllCertificates)}
-                className="px-8 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
+          {/* View All Button */}
+          <div className="text-center mt-12">
+            <Link
+              to="/certificates"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-neutral-800 hover:bg-neutral-700 text-white rounded-full transition-all duration-300 hover:scale-105 border border-neutral-700"
+            >
+              <span className="text-base md:text-lg font-medium">
+                See all certificates
+              </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
               >
-                {showAllCertificates
-                  ? "Show Less"
-                  : `Show All Certificates (${certificates.length})`}
-              </button>
-            </div>
-          )}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122"
+                />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 

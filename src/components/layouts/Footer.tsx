@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
               <div className="w-full max-w-xs">
                 <iframe
                   style={{ borderRadius: "12px", border: 0 }}
-                  src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
+                  src="https://open.spotify.com/embed/playlist/5n2SQSCUSXQpL0AdFoyZeY?si=d535f12ac05e4a9a?utm_source=generator&theme=0"
                   className="w-full h-40"
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy"
