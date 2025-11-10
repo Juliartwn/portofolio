@@ -28,8 +28,8 @@ const CertificateCarousel: React.FC<CertificateCarouselProps> = ({ certificates 
       {/* Carousel Container */}
       <div className="relative overflow-hidden h-[14rem] sm:h-[16rem] md:h-[18rem] flex items-center">
         {/* Gradient Overlays */}
-        <div className="absolute inset-y-0 left-0 w-24 md:w-32 bg-gradient-to-r from-neutral-800 to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-24 md:w-32 bg-gradient-to-l from-neutral-800 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-24 md:w-32 bg-gradient-to-r from-neutral-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 md:w-32 bg-gradient-to-l from-neutral-900 to-transparent z-10 pointer-events-none" />
 
         {/* Scrolling Container */}
         <div className="flex gap-4 animate-scroll-certificates hover:pause-animation py-4">

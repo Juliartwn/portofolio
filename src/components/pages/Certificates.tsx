@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ChevronLeft, Maximize2 } from "lucide-react";
 import Footer from "../layouts/Footer";
 import Button from "../ui/Button";
+import StarryBackground from '../ui/StarryBackground';
 
 const Certificates: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -52,8 +53,10 @@ const Certificates: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-white py-12 px-4 sm:px-8 lg:px-20">
+    <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-8 lg:px-20">
       {/* Back Button */}
+      <StarryBackground />
+
       <div className="fixed m-4 left-6 top-6 z-50 animate-fade-in-left">
         <button
           onClick={goBack}
@@ -66,7 +69,7 @@ const Certificates: React.FC = () => {
 
       {/* Header */}
       <div className="text-center max-w-6xl mx-auto">
-        <h1 className="mt-16 md:mt-20 text-3xl md:text-5xl font-bold mb-8 animate-fade-in-down">
+        <h1 className="mt-16 md:mt-20 text-3xl md:text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500 animate-fade-in-down">
           Certificates
         </h1>
 

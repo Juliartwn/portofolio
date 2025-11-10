@@ -8,6 +8,7 @@ import ContactForm from "../layouts/ContactForm";
 import CertificateCarousel from "../layouts/CertificateCarousel";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
+import StarryBackground from "../ui/StarryBackground";
 
 const Portfolio: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -269,11 +270,12 @@ const Portfolio: React.FC = () => {
 
   return (
     <div className="bg-neutral-900 min-h-screen">
+      <StarryBackground />
       <Navbar />
       <Hero />
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-neutral-800 text-white">
+      <section id="about" className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-900/95">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div
@@ -380,7 +382,7 @@ const Portfolio: React.FC = () => {
       {/* Projects Section */}
       <section
         id="projects"
-        className="py-20 bg-gradient-to-br from-neutral-900 via-primary-900/20 to-neutral-900 text-white"
+        className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-900/95"
       >
         <div className="container mx-auto px-6">
           <div
@@ -437,7 +439,7 @@ const Portfolio: React.FC = () => {
       {/* Certificates Section */}
       <section
         id="certificates"
-        className="py-20 bg-gradient-to-br from-neutral-800 via-neutral-800 to-neutral-900 text-white"
+        className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-900/95"
       >
         <div className="container mx-auto px-6">
           <div
@@ -494,7 +496,7 @@ const Portfolio: React.FC = () => {
       {/* Skills Section */}
       <section
         id="skills"
-        className="py-20 bg-neutral-900 text-white border-t border-neutral-800"
+        className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-900/95 text-white z-50"
       >
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
@@ -570,7 +572,7 @@ const Portfolio: React.FC = () => {
 
               {/* Right Side - Code Animation */}
               <div className="hidden lg:block">
-                <div className="relative w-full h-[400px] bg-neutral-950/50 rounded-2xl border border-neutral-800 overflow-hidden p-6">
+                <div className="relative w-full h-[400px] bg-neutral-950/75 rounded-2xl border border-neutral-800 overflow-hidden p-6">
                   <div className="Mono text-xs leading-relaxed opacity-40 text-primary-400 space-y-2">
                     <div className="animate-pulse">
                       <span className="text-primary-500">const</span>{" "}

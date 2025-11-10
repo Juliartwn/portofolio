@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full py-12 border-t border-neutral-800 bg-neutral-900 text-white">
+    <footer className="w-full py-12 border-t border-neutral-800 bg-gradient-to-b from-neutral-900 to-neutral-900/95 text-white">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
