@@ -15,12 +15,15 @@ const Navbar: React.FC = () => {
       const scrollPosition = window.scrollY + 100;
 
       let currentSection = "home";
-      
+
       sections.forEach((section) => {
         const sectionTop = (section as HTMLElement).offsetTop;
         const sectionHeight = (section as HTMLElement).offsetHeight;
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
           currentSection = section.id;
         }
       });
@@ -30,7 +33,7 @@ const Navbar: React.FC = () => {
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
-    
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -53,11 +56,12 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a
-            href="#home"
-            className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500"
-          >
-            Julltwn
+          <a href="#home">
+            <img
+              src="/svg/Julltwn-logo2.svg"
+              alt="Julltwn Logo"
+              className="h-10 mr-3"
+            />
           </a>
 
           {/* Desktop Nav */}
