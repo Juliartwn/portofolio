@@ -44,6 +44,7 @@ const Navbar: React.FC = () => {
     { name: "Certificates", href: "#certificates" },
     { name: "Skills", href: "#skills" },
     { name: "Contact", href: "#contact" },
+    { name: "Blog", href: "https://julltwn.framer.ai" },
   ];
 
   return (
