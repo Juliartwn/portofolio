@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Github, Linkedin, Instagram, Heart } from "lucide-react";
-import { RiReactjsFill, RiTailwindCssFill, RiVercelFill } from 'react-icons/ri';
+import { RiReactjsFill, RiTailwindCssFill, RiVercelFill } from "react-icons/ri";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -58,12 +58,12 @@ const Footer: React.FC = () => {
               <div className="flex items-center gap-4">
                 <button
                   onClick={handleLike}
-                  className="group relative flex items-center gap-2 px-6 py-3 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-all duration-300"
+                  className="group relative flex items-center gap-2 px-6 py-3 bg-neutral-800 hover:bg-neutral-700 rounded-full transition-all duration-300 hover:scale-105 ripple-effect"
                 >
                   <Heart
                     className={`w-5 h-5 transition-all duration-300 ${
                       isLiked
-                        ? "fill-red-500 text-red-500 scale-110"
+                        ? "fill-red-500 text-red-500 scale-110 animate-pulse"
                         : "text-neutral-400 group-hover:text-red-400"
                     }`}
                   />

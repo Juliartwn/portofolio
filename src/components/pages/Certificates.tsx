@@ -2,7 +2,37 @@ import React, { useState } from "react";
 import { ChevronLeft, Maximize2 } from "lucide-react";
 import Footer from "../layouts/Footer";
 import Button from "../ui/Button";
-import StarryBackground from '../ui/StarryBackground';
+import StarryBackground from "../ui/StarryBackground";
+import { useMouseTilt } from "@/hooks/useMouseTilt";
+
+// Separate component for individual certificate with its own tilt
+const CertificateCard: React.FC<{
+  cert: { id: number; image: string; title: string };
+  index: number;
+  onClick: () => void;
+}> = ({ cert, index, onClick }) => {
+  const tilt = useMouseTilt({ maxTilt: 10, scale: 1.05, speed: 300 });
+
+  return (
+    <div
+      ref={tilt.ref}
+      style={{ animationDelay: `${index * 0.1}s`, ...tilt.style }}
+      className="relative group block p-2 cursor-pointer animate-zoom-in"
+      onClick={onClick}
+    >
+      <div className="relative z-20 overflow-hidden transition-all duration-300 rounded-lg border border-neutral-700 hover:border-primary-500/50">
+        <img
+          src={cert.image}
+          alt={cert.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <Maximize2 className="w-10 h-10 text-white drop-shadow-xl mx-auto" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Certificates: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -54,9 +84,9 @@ const Certificates: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-8 lg:px-20">
-      {/* Back Button */}
       <StarryBackground />
 
+      {/* Back Button */}
       <div className="fixed m-4 left-6 top-6 z-50 animate-fade-in-left">
         <button
           onClick={goBack}
@@ -85,29 +115,18 @@ const Certificates: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-10">
           {certificates.map((cert, index) => (
-            <div
+            <CertificateCard
               key={cert.id}
-              className="relative group block p-2 cursor-pointer animate-zoom-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              cert={cert}
+              index={index}
               onClick={() => openModal(cert.image)}
-            >
-              <div className="relative z-20 overflow-hidden transition-all duration-300 rounded-lg border border-neutral-700 hover:border-primary-500/50">
-                <img
-                  src={cert.image}
-                  alt={cert.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Maximize2 className="w-12 h-12 md:w-16 md:h-16 text-neutral-900 drop-shadow-2xl" />
-                </div>
-              </div>
-            </div>
+            />
           ))}
         </div>
 
-        {/* See More Button (Optional) */}
+        {/* See More Button */}
         <div className="flex justify-center mt-12">
-          <button className="px-12 py-3 bg-white text-neutral-900 font-semibold rounded-full hover:bg-neutral-200 transition-all duration-300 hover:scale-105">
+          <button className="inline-flex items-center gap-3 px-8 py-4 bg-neutral-800 hover:bg-neutral-700 text-white rounded-full transition-all duration-300 hover:scale-105 border border-neutral-700">
             See More
           </button>
         </div>

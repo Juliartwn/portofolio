@@ -4,6 +4,7 @@ import Card from "../ui/Card";
 import Badge from "../ui/Badge";
 import Modal from "../ui/Modal";
 import Carousel from "../ui/Carousel";
+import { useMouseTilt } from "@/hooks/useMouseTilt";
 
 interface ProjectCardProps {
   title: string;
@@ -35,6 +36,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   className = "",
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const tilt = useMouseTilt({ maxTilt: 10, scale: 1.02, speed: 300 });
 
   // Combine single image with images array
   const allImages = images && images.length > 0 ? images : [image];
@@ -68,94 +70,95 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <>
-      <Card className={`group ${className}`}>
-        <div className="relative overflow-hidden h-48">
-          {/* Always show only the first image in card preview */}
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-          />
+      <div ref={tilt.ref} style={tilt.style}>
+        <Card className={`group${className}`}>
+          <div className="relative overflow-hidden h-48">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-60 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-60 pointer-events-none"></div>
 
-          {/* Type Badge */}
-          <div className="absolute top-4 right-4">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-primary-500/20 backdrop-blur-sm rounded-full border border-primary-500/30 text-primary-300 text-xs font-medium">
-              {getTypeIcon()}
-              <span>{getTypeLabel()}</span>
+            {/* Type Badge */}
+            <div className="absolute top-4 right-4">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-primary-400 rounded-full border border-primary-500/30 text-primary-100 text-xs font-medium">
+                {getTypeIcon()}
+                <span>{getTypeLabel()}</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="p-6">
-          <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary-400 transition-colors duration-300">
-            {title}
-          </h3>
-          <p className="text-neutral-400 mb-4 text-sm line-clamp-2">
-            {description}
-          </p>
+          <div className="p-6">
+            <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary-400 transition-colors duration-300">
+              {title}
+            </h3>
+            <p className="text-neutral-400 mb-4 text-sm line-clamp-2">
+              {description}
+            </p>
 
-          <div className="flex flex-wrap gap-2 mb-4">
-            {tags.slice(0, 3).map((tag, index) => (
-              <Badge key={index} variant="primary" size="sm">
-                {tag}
-              </Badge>
-            ))}
-            {tags.length > 3 && (
-              <Badge variant="info" size="sm">
-                +{tags.length - 3}
-              </Badge>
-            )}
+            <div className="flex flex-wrap gap-2 mb-4">
+              {tags.slice(0, 3).map((tag, index) => (
+                <Badge key={index} variant="primary" size="sm">
+                  {tag}
+                </Badge>
+              ))}
+              {tags.length > 3 && (
+                <Badge variant="info" size="sm">
+                  +{tags.length - 3}
+                </Badge>
+              )}
+            </div>
+
+            <div className="flex gap-3 flex-wrap">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="flex items-center gap-2 text-primary-400 hover:text-primary-300 transition-colors duration-300 text-sm font-medium"
+              >
+                <Eye className="w-4 h-4" />
+                <span>Details</span>
+              </button>
+
+              {github && (
+                <a
+                  href={github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>Code</span>
+                </a>
+              )}
+
+              {demo && (
+                <a
+                  href={demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-primary-500 hover:text-primary-400 transition-colors duration-300 text-sm font-medium"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Demo</span>
+                </a>
+              )}
+
+              {figma && (
+                <a
+                  href={figma}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors duration-300 text-sm font-medium"
+                >
+                  <Figma className="w-4 h-4" />
+                  <span>Design</span>
+                </a>
+              )}
+            </div>
           </div>
-
-          <div className="flex gap-3 flex-wrap">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-2 text-primary-400 hover:text-primary-300 transition-colors duration-300 text-sm font-medium"
-            >
-              <Eye className="w-4 h-4" />
-              <span>Details</span>
-            </button>
-
-            {github && (
-              <a
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium"
-              >
-                <Github className="w-4 h-4" />
-                <span>Code</span>
-              </a>
-            )}
-
-            {demo && (
-              <a
-                href={demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-primary-500 hover:text-primary-400 transition-colors duration-300 text-sm font-medium"
-              >
-                <ExternalLink className="w-4 h-4" />
-                <span>Demo</span>
-              </a>
-            )}
-
-            {figma && (
-              <a
-                href={figma}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors duration-300 text-sm font-medium"
-              >
-                <Figma className="w-4 h-4" />
-                <span>Design</span>
-              </a>
-            )}
-          </div>
-        </div>
-      </Card>
+        </Card>
+      </div>
 
       {/* Modal for Project Details */}
       <Modal
@@ -183,13 +186,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </div>
           )}
 
-          {/* Project Type Badge */}
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-2 px-4 py-2 bg-primary-500/20 rounded-lg border border-primary-500/30 text-primary-300 font-medium">
-              {getTypeIcon()}
-              <span>{getTypeLabel()}</span>
-            </div>
-          </div>
+          <Badge
+            variant="primary"
+            size="md"
+            className="inline-flex items-center gap-2"
+          >
+            {getTypeIcon()}
+            <span>{getTypeLabel()}</span>
+          </Badge>
 
           {/* Description */}
           <div>

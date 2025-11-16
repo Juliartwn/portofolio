@@ -14,20 +14,20 @@ const Badge: React.FC<BadgeProps> = ({
   className = ''
 }) => {
   const variants = {
-    primary: 'bg-primary-500/20 text-primary-300 border-primary-500/30',
-    secondary: 'bg-primary-600/20 text-primary-400 border-primary-600/30',
-    success: 'bg-green-500/20 text-green-300 border-green-500/30',
-    info: 'bg-neutral-500/20 text-neutral-300 border-neutral-500/30'
+    primary: 'bg-primary-500/30 text-primary-200 border-primary-400/50 font-semibold',
+    secondary: 'bg-primary-600/30 text-primary-300 border-primary-500/50 font-semibold',
+    success: 'bg-green-500/30 text-green-200 border-green-400/50 font-semibold',
+    info: 'bg-neutral-600/40 text-neutral-200 border-neutral-400/50 font-semibold'
   };
 
   const sizes = {
-    sm: 'px-2 py-1 text-xs',
-    md: 'px-3 py-1 text-sm'
+    sm: 'px-2.5 py-1 text-xs',
+    md: 'px-3.5 py-1.5 text-sm'
   };
 
   return (
     <span
-      className={`inline-block rounded-full font-medium border ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`inline-block rounded-full border ${variants[variant]} ${sizes[size]} ${className} backdrop-blur-sm`}
     >
       {children}
     </span>

@@ -9,6 +9,7 @@ import CertificateCarousel from "../layouts/CertificateCarousel";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "react-router-dom";
 import StarryBackground from "../ui/StarryBackground";
+import { useMouseTilt } from "@/hooks/useMouseTilt";
 
 const Portfolio: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -23,6 +24,8 @@ const Portfolio: React.FC = () => {
   const contactTitle = useScrollReveal();
   const contactForm = useScrollReveal();
   const footerReveal = useScrollReveal();
+
+  const tilt = useMouseTilt({ maxTilt: 5, scale: 1.03 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -275,7 +278,10 @@ const Portfolio: React.FC = () => {
       <Hero />
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-900/95">
+      <section
+        id="about"
+        className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-900/95"
+      >
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div
@@ -299,7 +305,7 @@ const Portfolio: React.FC = () => {
                   aboutImage.isVisible ? "animate-fade-in-left" : ""
                 }`}
               >
-                <div className="relative">
+                <div className="relative" ref={tilt.ref} style={tilt.style}>
                   <div className="absolute -inset-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl opacity-20 blur-xl"></div>
                   <img
                     src="/img/myself/santai.jpg"
@@ -362,12 +368,12 @@ const Portfolio: React.FC = () => {
                   <div
                     key={index}
                     ref={statReveal.ref}
-                    className={`text-center p-6 bg-neutral-900 rounded-xl border border-neutral-700 hover:border-primary-500/50 transition-all duration-300 scroll-reveal ${
+                    className={`text-center p-6 bg-neutral-900 rounded-xl border border-neutral-700 hover:border-primary-500/50 transition-all duration-300 scroll-reveal hover-tilt hover:animate-pulse-glow ${
                       statReveal.isVisible ? "animate-zoom-in" : ""
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <h3 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500 mb-2">
+                    <h3 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500 mb-2 animate-count-up">
                       {stat.number}
                     </h3>
                     <p className="text-neutral-400 text-sm">{stat.label}</p>
@@ -524,10 +530,10 @@ const Portfolio: React.FC = () => {
                       <li key={index} className="w-full">
                         <div className="bg-neutral-800/30 rounded-2xl border border-neutral-700/50 hover:border-primary-500/50 transition-all overflow-hidden">
                           <div
-                            className="flex items-center gap-3 p-4 cursor-pointer"
+                            className="flex items-center gap-3 p-4 cursor-pointer group"
                             onClick={() => toggleSkill(index)}
                           >
-                            <div className="text-primary-400 opacity-70">
+                            <div className="text-primary-400 opacity-70 group-hover:opacity-100 transition-opacity hover-bounce">
                               {category.icon}
                             </div>
                             <div className="flex items-center gap-2 flex-grow justify-between">
@@ -546,22 +552,24 @@ const Portfolio: React.FC = () => {
                             </div>
                           </div>
                           <div
-                            className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                            className={`grid transition-all duration-500 ease-in-out ${
                               isOpen
-                                ? "max-h-96 opacity-100"
-                                : "max-h-0 opacity-0"
+                                ? "grid-rows-[1fr] opacity-100"
+                                : "grid-rows-[0fr] opacity-0"
                             }`}
                           >
-                            <ul className="space-y-2 text-neutral-400 text-sm px-4 pb-4">
-                              {category.details.map((detail, idx) => (
-                                <li key={idx} className="flex items-start">
-                                  <span className="text-primary-400 mr-2">
-                                    ✓
-                                  </span>
-                                  <span>{detail}</span>
-                                </li>
-                              ))}
-                            </ul>
+                            <div className="overflow-hidden">
+                              <ul className="space-y-2 text-neutral-400 text-sm px-4 pb-4">
+                                {category.details.map((detail, idx) => (
+                                  <li key={idx} className="flex items-start">
+                                    <span className="text-primary-400 mr-2">
+                                      ✓
+                                    </span>
+                                    <span>{detail}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </li>
@@ -637,24 +645,40 @@ const Portfolio: React.FC = () => {
               <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-neutral-900 to-transparent z-10"></div>
               <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-neutral-900 to-transparent z-10"></div>
 
-              {/* Scrolling Container */}
-              <div className="flex gap-12 animate-scroll">
-                {/* Duplicate items for seamless loop */}
-                {[...technologies, ...technologies, ...technologies].map(
-                  (tech, index) => (
+              {/* Wrapper for animation */}
+              <div className="flex">
+                <div className="flex gap-12 animate-scroll-continuous">
+                  {technologies.map((tech, index) => (
                     <div
-                      key={index}
-                      className="flex items-center gap-3 group transition-all duration-300 hover:scale-110 flex-shrink-0"
+                      key={`set1-${index}`}
+                      className="flex items-center gap-3 group transition-all duration-300 hover:scale-110 flex-shrink-0 min-w-max"
                     >
-                      <div className="text-4xl opacity-60 group-hover:opacity-100 transition-opacity">
-                        <img src={tech.icon} alt="" className="h-8" />
-                      </div>
+                      <img
+                        src={tech.icon}
+                        alt={tech.name}
+                        className="h-8 opacity-60 group-hover:opacity-100 transition-opacity"
+                      />
                       <span className="text-lg font-medium text-neutral-400 group-hover:text-white transition-colors whitespace-nowrap">
                         {tech.name}
                       </span>
                     </div>
-                  )
-                )}
+                  ))}
+                  {technologies.map((tech, index) => (
+                    <div
+                      key={`set2-${index}`}
+                      className="flex items-center gap-3 group transition-all duration-300 hover:scale-110 flex-shrink-0 min-w-max"
+                    >
+                      <img
+                        src={tech.icon}
+                        alt={tech.name}
+                        className="h-8 opacity-60 group-hover:opacity-100 transition-opacity"
+                      />
+                      <span className="text-lg font-medium text-neutral-400 group-hover:text-white transition-colors whitespace-nowrap">
+                        {tech.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

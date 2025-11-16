@@ -37,6 +37,22 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (isMobileMenuOpen && !target.closest('.mobile-menu-container')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -47,6 +63,14 @@ const Navbar: React.FC = () => {
     { name: "Blog", href: "https://julltwn.framer.ai" },
   ];
 
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    
+    if (href.startsWith('http')) {
+      window.open(href, '_blank');
+    }
+  };
+
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -55,23 +79,26 @@ const Navbar: React.FC = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <a href="#home">
+          {/* Logo */}
+          <a href="#home" className="flex-shrink-0">
             <img
               src="/svg/Julltwn-logo2.svg"
               alt="Julltwn Logo"
-              className="h-10 mr-3"
+              className="h-8 sm:h-10 w-auto"
             />
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className={`relative text-neutral-300 hover:text-white transition-colors duration-300 group ${
+                target={item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className={`relative text-sm xl:text-base text-neutral-300 hover:text-white transition-colors duration-300 group whitespace-nowrap ${
                   activeSection === item.href.replace("#", "")
                     ? "text-white"
                     : ""
@@ -87,15 +114,19 @@ const Navbar: React.FC = () => {
                 ></span>
               </a>
             ))}
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="sm" className="whitespace-nowrap">
               Hire Me
             </Button>
           </div>
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden text-white p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden text-white p-2 hover:bg-neutral-800 rounded-lg transition-colors mobile-menu-container"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -106,27 +137,37 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-4 bg-neutral-800/50 backdrop-blur-md rounded-lg p-4">
+        <div
+          className={`lg:hidden mobile-menu-container transition-all duration-300 ease-in-out overflow-hidden ${
+            isMobileMenuOpen
+              ? "max-h-[500px] opacity-100 mt-4"
+              : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="pb-4 space-y-2 bg-neutral-800/95 backdrop-blur-md rounded-xl p-4 shadow-xl border border-neutral-700">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className={`block text-neutral-300 hover:text-white transition-colors duration-300 py-2 ${
+                target={item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className={`block text-neutral-300 hover:text-white hover:bg-neutral-700/50 transition-all duration-300 py-3 px-4 rounded-lg ${
                   activeSection === item.href.replace("#", "")
-                    ? "text-white font-semibold"
+                    ? "text-white bg-neutral-700/50 font-semibold"
                     : ""
                 }`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => handleNavClick(item.href)}
               >
                 {item.name}
               </a>
             ))}
-            <Button variant="primary" size="sm" className="w-full">
-              Hire Me
-            </Button>
+            <div className="pt-2">
+              <Button variant="primary" size="sm" className="w-full">
+                Hire Me
+              </Button>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

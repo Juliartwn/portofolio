@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 
 interface Star {
   x: number;
@@ -30,7 +30,7 @@ const ShootingStars: React.FC = () => {
     // Create stars
     const createStar = (): Star => ({
       x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height * 0.5, // Start from top half
+      y: Math.random() * canvas.height * 0.5,
       length: Math.random() * 80 + 40,
       speed: Math.random() * 3 + 2,
       opacity: Math.random() * 0.5 + 0.3,
@@ -51,12 +51,12 @@ const ShootingStars: React.FC = () => {
         // Draw shooting star
         ctx.save();
         ctx.translate(star.x, star.y);
-        ctx.rotate(Math.PI / 4); // 45 degree angle
+        ctx.rotate(Math.PI / 4);
 
         const gradient = ctx.createLinearGradient(0, 0, star.length, 0);
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${star.opacity})`);
+        gradient.addColorStop(0, 'rgba(240, 112, 10, 0)');
         gradient.addColorStop(0.5, `rgba(247, 185, 109, ${star.opacity * 0.8})`);
-        gradient.addColorStop(1, 'rgba(240, 112, 10, 0)');
+        gradient.addColorStop(1, `rgba(255, 255, 255, ${star.opacity})`);
 
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 2;
@@ -102,22 +102,35 @@ const ShootingStars: React.FC = () => {
   );
 };
 
-// Static stars component for depth
+// Static stars component - FIXED VERSION
 const StaticStars: React.FC = () => {
+  // useMemo untuk memoize posisi bintang agar tidak berubah saat re-render
+  const stars = useMemo(() => {
+    return Array.from({ length: 100 }).map((_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      size: Math.random() * 2 + 1,
+      opacity: Math.random() * 0.5 + 0.3,
+      animationDelay: Math.random() * 3,
+      animationDuration: Math.random() * 2 + 2,
+    }));
+  }, []); // Empty dependency array = hanya generate sekali
+
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
-      {Array.from({ length: 100 }).map((_, i) => (
+      {stars.map((star) => (
         <div
-          key={i}
+          key={star.id}
           className="absolute rounded-full bg-white animate-pulse"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            width: `${Math.random() * 2 + 1}px`,
-            height: `${Math.random() * 2 + 1}px`,
-            opacity: Math.random() * 0.5 + 0.3,
-            animationDelay: `${Math.random() * 3}s`,
-            animationDuration: `${Math.random() * 2 + 2}s`,
+            left: `${star.left}%`,
+            top: `${star.top}%`,
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            opacity: star.opacity,
+            animationDelay: `${star.animationDelay}s`,
+            animationDuration: `${star.animationDuration}s`,
           }}
         />
       ))}

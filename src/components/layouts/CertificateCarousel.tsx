@@ -49,7 +49,7 @@ const CertificateCarousel: React.FC<CertificateCarouselProps> = ({ certificates 
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <div className="text-center">
-                  <Maximize2 className="w-10 h-10 text-neutral-900 drop-shadow-xl mx-auto" />
+                  <Maximize2 className="w-10 h-10 text-white drop-shadow-xl mx-auto" />
                 </div>
               </div>
             </div>
