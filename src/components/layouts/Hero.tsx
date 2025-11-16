@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8 inline-block animate-zoom-in">
             <div className="w-32 h-32 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center text-4xl font-bold shadow-2xl transform hover:scale-110 transition-transform duration-300 animate-float animate-pulse-glow">
-              JA
+              <img src="/svg/Julltwn-logo-white.svg" alt="logo julltwn" className="h-16"/>
             </div>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500 animate-fade-in-down delay-100">
