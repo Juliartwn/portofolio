@@ -71,7 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <>
       <div ref={tilt.ref} style={tilt.style}>
-        <Card className={`group${className}`}>
+        <Card className={`group ${className}`}>
           <div className="relative overflow-hidden h-48">
             <img
               src={image}
@@ -173,7 +173,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <Carousel
               images={allImages}
               alt={title}
-              className="w-full h-96 rounded-xl"
+              className="w-full h-56 sm:h-80 md:h-96 rounded-xl"
               showIndicators={true}
             />
           ) : (

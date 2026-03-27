@@ -74,8 +74,10 @@ const Modal: React.FC<ModalProps> = ({
       >
         {/* Header */}
         {title && (
-          <div className="sticky top-0 z-10 flex items-center justify-between p-6 border-b border-neutral-700 bg-neutral-900">
-            <h2 className="text-2xl font-bold text-white">{title}</h2>
+          <div className="sticky top-0 z-10 flex items-center justify-between p-4 sm:p-6 border-b border-neutral-700 bg-neutral-900">
+            <h2 className="text-lg sm:text-2xl font-bold text-white pr-4">
+              {title}
+            </h2>
             <button
               onClick={handleClose}
               className="p-2 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-full transition-all duration-300"
@@ -87,7 +89,7 @@ const Modal: React.FC<ModalProps> = ({
         )}
 
         {/* Body */}
-        <div className="p-6">{children}</div>
+        <div className="p-4 sm:p-6">{children}</div>
 
         {/* Close button if no title */}
         {!title && (

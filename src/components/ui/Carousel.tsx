@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface CarouselProps {
   images: string[];
@@ -12,11 +12,11 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({
   images,
-  alt = 'Carousel image',
-  className = '',
+  alt = "Carousel image",
+  className = "",
   showIndicators = true,
   autoPlay = false,
-  autoPlayInterval = 3000
+  autoPlayInterval = 3000,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -44,7 +44,9 @@ const Carousel: React.FC<CarouselProps> = ({
 
   if (images.length === 0) {
     return (
-      <div className={`flex items-center justify-center bg-neutral-800 ${className}`}>
+      <div
+        className={`flex items-center justify-center bg-neutral-800 ${className}`}
+      >
         <p className="text-neutral-400">No images available</p>
       </div>
     );
@@ -53,11 +55,7 @@ const Carousel: React.FC<CarouselProps> = ({
   if (images.length === 1) {
     return (
       <div className={`relative overflow-hidden ${className}`}>
-        <img
-          src={images[0]}
-          alt={alt}
-          className="w-full h-full object-cover"
-        />
+        <img src={images[0]} alt={alt} className="w-full h-full object-cover" />
       </div>
     );
   }
@@ -76,7 +74,7 @@ const Carousel: React.FC<CarouselProps> = ({
       {/* Navigation Buttons */}
       <button
         onClick={goToPrevious}
-        className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+        className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 hover:scale-110"
         aria-label="Previous image"
       >
         <ChevronLeft className="w-5 h-5" />
@@ -84,7 +82,7 @@ const Carousel: React.FC<CarouselProps> = ({
 
       <button
         onClick={goToNext}
-        className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+        className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 hover:scale-110"
         aria-label="Next image"
       >
         <ChevronRight className="w-5 h-5" />
@@ -99,8 +97,8 @@ const Carousel: React.FC<CarouselProps> = ({
               onClick={() => goToSlide(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'bg-white w-6'
-                  : 'bg-white/50 hover:bg-white/75'
+                  ? "bg-white w-6"
+                  : "bg-white/50 hover:bg-white/75"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
