@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Maximize2 } from 'lucide-react';
-import Button from '../ui/Button';
+import React, { useState } from "react";
+import { Maximize2 } from "lucide-react";
+import Button from "../ui/Button";
 
 interface CertificateCarouselProps {
   certificates: Array<{
@@ -9,7 +9,9 @@ interface CertificateCarouselProps {
   }>;
 }
 
-const CertificateCarousel: React.FC<CertificateCarouselProps> = ({ certificates }) => {
+const CertificateCarousel: React.FC<CertificateCarouselProps> = ({
+  certificates,
+}) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Duplicate certificates for seamless loop
@@ -36,7 +38,7 @@ const CertificateCarousel: React.FC<CertificateCarouselProps> = ({ certificates 
           {duplicatedCertificates.map((cert, index) => (
             <div
               key={index}
-              className="relative group flex-shrink-0 w-[265px] sm:w-[280px] md:w-[340px] lg:w-[355px] h-auto rounded-md md:rounded-lg overflow-hidden cursor-pointer"
+              className="relative group flex-shrink-0 w-[220px] sm:w-[280px] md:w-[340px] lg:w-[355px] h-auto rounded-md md:rounded-lg overflow-hidden cursor-pointer"
               onClick={() => openModal(cert.image)}
             >
               {/* Certificate Image */}
@@ -59,30 +61,31 @@ const CertificateCarousel: React.FC<CertificateCarouselProps> = ({ certificates 
 
       {/* Modal for Full Screen View */}
       {selectedImage && (
-        <div 
+        <div
           className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
           onClick={closeModal}
         >
           <Button
-            className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 text-white"
+            size="sm"
+            className="absolute top-4 right-4 !p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 text-white"
             onClick={closeModal}
           >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="w-6 h-6" 
-              fill="none" 
-              viewBox="0 0 24 24" 
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M6 18L18 6M6 6l12 12" 
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
               />
             </svg>
           </Button>
-          
+
           <div className="max-w-5xl max-h-[90vh] overflow-auto">
             <img
               src={selectedImage}

@@ -63,18 +63,22 @@ const Hero: React.FC = () => {
         ></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 py-25">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 py-20 sm:py-24">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8 inline-block animate-zoom-in">
             <div className="w-32 h-32 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center text-4xl font-bold shadow-2xl transform hover:scale-110 transition-transform duration-300 animate-float animate-pulse-glow">
-              <img src="/svg/Julltwn-logo-white.svg" alt="logo julltwn" className="h-16"/>
+              <img
+                src="/svg/Julltwn-logo-white.svg"
+                alt="logo julltwn"
+                className="h-16"
+              />
             </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500 animate-fade-in-down delay-100">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500 animate-fade-in-down delay-100">
             Juli Artawan
           </h1>
           <div className="h-16 flex items-center justify-center mb-4 animate-fade-in-up delay-200">
-            <p className="text-xl md:text-2xl text-neutral-300">
+            <p className="text-lg sm:text-xl md:text-2xl text-neutral-300">
               {displayedText}
               <span className="animate-pulse">|</span>
             </p>

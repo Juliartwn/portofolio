@@ -87,7 +87,7 @@ const Certificates: React.FC = () => {
       <StarryBackground />
 
       {/* Back Button */}
-      <div className="fixed m-4 left-6 top-6 z-50 animate-fade-in-left">
+      <div className="fixed m-4 left-4 top-4 sm:left-6 sm:top-6 z-50 animate-fade-in-left">
         <button
           onClick={goBack}
           className="flex items-center gap-2 text-white hover:text-primary-400 transition-colors duration-300"
@@ -144,7 +144,8 @@ const Certificates: React.FC = () => {
           onClick={closeModal}
         >
           <Button
-            className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 text-white"
+            size="sm"
+            className="absolute top-4 right-4 !p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 text-white"
             onClick={closeModal}
           >
             <svg
