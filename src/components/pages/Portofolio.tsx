@@ -109,7 +109,7 @@ const Portfolio: React.FC = () => {
       description:
         "Desain antarmuka aplikasi pencarian tempat kos di wilayah Singaraja.",
       image: "/img/project/EasyKost/EasyKost.png",
-      tags: ["React", "Weather API", "Mapbox", "PWA"],
+      tags: ["Figma", "UI/UX", "Prototyping"],
       figma: "#",
       type: "design" as const,
       fullDescription: `
@@ -157,7 +157,7 @@ const Portfolio: React.FC = () => {
         "/img/project/GymApp/GymApp_2.png",
         "/img/project/GymApp/GymApp_3.png",
       ],
-      tags: ["React Native", "Firebase", "Redux", "Figma"],
+      tags: ["Laravel", "Tailwind", "MySQL"],
       github: "#",
       type: "development" as const,
       fullDescription: `
@@ -282,7 +282,7 @@ const Portfolio: React.FC = () => {
         id="about"
         className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-900/95"
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div
               ref={aboutTitle.ref}
@@ -290,7 +290,7 @@ const Portfolio: React.FC = () => {
                 aboutTitle.isVisible ? "animate-fade-in-down" : ""
               }`}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
                 About Me
               </h2>
               <p className="text-neutral-400 text-center mb-16 text-lg">
@@ -298,7 +298,7 @@ const Portfolio: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center mb-16">
               <div
                 ref={aboutImage.ref}
                 className={`scroll-reveal ${
@@ -310,7 +310,7 @@ const Portfolio: React.FC = () => {
                   <img
                     src="/img/myself/santai.jpg"
                     alt="Profile"
-                    className="relative rounded-2xl shadow-2xl"
+                    className="relative w-full max-w-sm sm:max-w-md md:max-w-none mx-auto rounded-2xl shadow-2xl"
                   />
                 </div>
               </div>
@@ -338,16 +338,16 @@ const Portfolio: React.FC = () => {
                   world through my work.
                 </p>
 
-                <div className="flex gap-4 pt-4">
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <a
                     href="#contact"
-                    className="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                    className="w-full sm:w-auto text-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300"
                   >
                     Let's Talk
                   </a>
                   <a
                     href="#"
-                    className="px-6 py-3 border-2 border-primary-500 text-primary-400 font-semibold rounded-full hover:bg-primary-500 hover:text-white transition-all duration-300"
+                    className="w-full sm:w-auto text-center px-6 py-3 border-2 border-primary-500 text-primary-400 font-semibold rounded-full hover:bg-primary-500 hover:text-white transition-all duration-300"
                   >
                     Download CV
                   </a>
@@ -368,12 +368,12 @@ const Portfolio: React.FC = () => {
                   <div
                     key={index}
                     ref={statReveal.ref}
-                    className={`text-center p-6 bg-neutral-900 rounded-xl border border-neutral-700 hover:border-primary-500/50 transition-all duration-300 scroll-reveal hover-tilt hover:animate-pulse-glow ${
+                    className={`text-center p-4 sm:p-6 bg-neutral-900 rounded-xl border border-neutral-700 hover:border-primary-500/50 transition-all duration-300 scroll-reveal hover-tilt hover:animate-pulse-glow ${
                       statReveal.isVisible ? "animate-zoom-in" : ""
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <h3 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500 mb-2 animate-count-up">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500 mb-2 animate-count-up">
                       {stat.number}
                     </h3>
                     <p className="text-neutral-400 text-sm">{stat.label}</p>
@@ -390,14 +390,14 @@ const Portfolio: React.FC = () => {
         id="projects"
         className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-900/95"
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div
             ref={projectsTitle.ref}
             className={`text-center mb-16 scroll-reveal ${
               projectsTitle.isVisible ? "animate-fade-in-down" : ""
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
               Featured Projects
             </h2>
             <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
@@ -406,7 +406,7 @@ const Portfolio: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {displayedProjects.map((project, index) => {
               const projectReveal = useScrollReveal();
               return (
@@ -447,14 +447,14 @@ const Portfolio: React.FC = () => {
         id="certificates"
         className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-900/95"
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div
             ref={certificatesTitle.ref}
             className={`text-center mb-16 scroll-reveal ${
               certificatesTitle.isVisible ? "animate-fade-in-down" : ""
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
               Certificates & Achievements
             </h2>
             <p className="text-neutral-400 text-lg max-w-2xl mx-auto mb-4">
@@ -504,7 +504,7 @@ const Portfolio: React.FC = () => {
         id="skills"
         className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-900/95 text-white z-50"
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               {/* Left Side - Skills List */}
@@ -537,7 +537,7 @@ const Portfolio: React.FC = () => {
                               {category.icon}
                             </div>
                             <div className="flex items-center gap-2 flex-grow justify-between">
-                              <span className="text-white text-lg font-medium">
+                              <span className="text-white text-base sm:text-lg font-medium">
                                 {category.title}
                               </span>
                               <svg
@@ -642,12 +642,12 @@ const Portfolio: React.FC = () => {
             {/* Infinite Scrolling Tech Stack */}
             <div className="mt-16 relative overflow-hidden py-8">
               {/* Gradient Overlays */}
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-neutral-900 to-transparent z-10"></div>
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-neutral-900 to-transparent z-10"></div>
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-neutral-900 to-transparent z-10"></div>
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24 md:w-32 bg-gradient-to-l from-neutral-900 to-transparent z-10"></div>
 
               {/* Wrapper for animation */}
               <div className="flex">
-                <div className="flex gap-12 animate-scroll-continuous">
+                <div className="flex gap-6 sm:gap-12 animate-scroll-continuous">
                   {technologies.map((tech, index) => (
                     <div
                       key={`set1-${index}`}
@@ -656,9 +656,9 @@ const Portfolio: React.FC = () => {
                       <img
                         src={tech.icon}
                         alt={tech.name}
-                        className="h-8 opacity-60 group-hover:opacity-100 transition-opacity"
+                        className="h-6 sm:h-8 opacity-60 group-hover:opacity-100 transition-opacity"
                       />
-                      <span className="text-lg font-medium text-neutral-400 group-hover:text-white transition-colors whitespace-nowrap">
+                      <span className="text-sm sm:text-lg font-medium text-neutral-400 group-hover:text-white transition-colors whitespace-nowrap">
                         {tech.name}
                       </span>
                     </div>
@@ -671,9 +671,9 @@ const Portfolio: React.FC = () => {
                       <img
                         src={tech.icon}
                         alt={tech.name}
-                        className="h-8 opacity-60 group-hover:opacity-100 transition-opacity"
+                        className="h-6 sm:h-8 opacity-60 group-hover:opacity-100 transition-opacity"
                       />
-                      <span className="text-lg font-medium text-neutral-400 group-hover:text-white transition-colors whitespace-nowrap">
+                      <span className="text-sm sm:text-lg font-medium text-neutral-400 group-hover:text-white transition-colors whitespace-nowrap">
                         {tech.name}
                       </span>
                     </div>
@@ -687,14 +687,14 @@ const Portfolio: React.FC = () => {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-neutral-900 text-white">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div
             ref={contactTitle.ref}
             className={`text-center mb-16 scroll-reveal ${
               contactTitle.isVisible ? "animate-fade-in-down" : ""
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-500">
               Get In Touch
             </h2>
             <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
@@ -727,7 +727,7 @@ const Portfolio: React.FC = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 p-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full shadow-2xl hover:shadow-primary-500/50 hover:scale-110 transition-all duration-300 animate-bounce hover:animate-none group"
+          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40 p-3 sm:p-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full shadow-2xl hover:shadow-primary-500/50 hover:scale-110 transition-all duration-300 animate-bounce hover:animate-none group"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-6 h-6" />
